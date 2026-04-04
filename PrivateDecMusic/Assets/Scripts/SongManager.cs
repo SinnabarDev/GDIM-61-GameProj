@@ -34,7 +34,6 @@ public class SongManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
             StartCoroutine(ReadFromWebsite());
@@ -43,6 +42,10 @@ public class SongManager : MonoBehaviour
         {
             ReadFromFile();
         }
+    }
+    void Awake()
+    {
+        Instance = this;
     }
 
     private IEnumerator ReadFromWebsite()
@@ -69,6 +72,7 @@ public class SongManager : MonoBehaviour
 
     private void ReadFromFile()
     {
+        Debug.Log(Application.streamingAssetsPath + "/" + fileLocation);
         midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
         GetDataFromMidi();
     }
