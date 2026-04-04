@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public GameObject rhythmGameUI; // your DDR UI
+    public GameObject rhythmGameUI;
     public GameObject player;
+
+    [Header("This NPC's Song")]
+    public SongData npcSong;
+
     private bool playerInRange = false;
 
     void Update()
@@ -21,7 +25,13 @@ public class NPCInteraction : MonoBehaviour
         // Disable player movement
         player.GetComponent<PlayerMovement>().enabled = false;
 
-        // Start the song
+        // 🔥 LOAD THE SONG FIRST
+        SongManager.Instance.LoadSong(npcSong);
+
+        // Optional safety: ensure MIDI is ready before playing
+        SongManager.Instance.GetDataFromMidi();
+
+        // Start audio
         SongManager.Instance.StartSong();
     }
 

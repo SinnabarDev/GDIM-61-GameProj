@@ -910,7 +910,7 @@ MonoBehaviour:
   songDelayInSeconds: 0
   marginOfError: 0.1
   inputDelayInMilliseconds: 0
-  fileLocation: test.mid
+  currentSong: {fileID: 0}
   noteTime: 1
   noteSpawnY: 6
   noteTapY: -3
@@ -1059,6 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
   rhythmGameUI: {fileID: 972604269}
   player: {fileID: 200264005}
+  npcSong: {fileID: 11400000, guid: 6ec9cdb39d1bbb649be51c4abcabb90e, type: 2}
 --- !u!61 &1150576304
 BoxCollider2D:
   m_ObjectHideFlags: 0
