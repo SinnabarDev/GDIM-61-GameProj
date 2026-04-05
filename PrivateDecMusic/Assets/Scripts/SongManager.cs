@@ -43,11 +43,7 @@ public class SongManager : MonoBehaviour
 
     void Start()
     {
-        // Optional safety: only auto-load if a song is assigned
-        if (currentSong != null)
-        {
-            LoadSong(currentSong);
-        }
+
     }
 
     // -----------------------------
