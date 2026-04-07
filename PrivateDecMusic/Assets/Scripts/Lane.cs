@@ -42,6 +42,8 @@ public class Lane : MonoBehaviour
 
     void Update()
     {
+        if (!SongManager.Instance || !SongManager.Instance.isGameActive)
+        return;
         double audioTime = SongManager.GetAudioSourceTime() -
             (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
 

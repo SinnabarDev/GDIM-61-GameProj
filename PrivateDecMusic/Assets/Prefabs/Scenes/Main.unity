@@ -451,7 +451,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &200264010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,6 +912,7 @@ MonoBehaviour:
   songDelayInSeconds: 0
   marginOfError: 0.1
   inputDelayInMilliseconds: 0
+  isGameActive: 0
   currentSong: {fileID: 0}
   noteTime: 1
   noteSpawnY: 6

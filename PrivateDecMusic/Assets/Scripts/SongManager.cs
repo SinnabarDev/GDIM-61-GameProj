@@ -18,6 +18,8 @@ public class SongManager : MonoBehaviour
     public double marginOfError;
     public int inputDelayInMilliseconds;
 
+    public bool isGameActive = false;
+
     [Header("Song Settings")]
     public SongData currentSong;
 
@@ -25,7 +27,6 @@ public class SongManager : MonoBehaviour
     public float noteTime;
     public float noteSpawnY;
     public float noteTapY;
-
     public float noteDespawnY
     {
         get
@@ -61,6 +62,8 @@ public class SongManager : MonoBehaviour
 
     public void StartSong()
     {
+        isGameActive = true;
+
         audioSource.Play();
     }
 
@@ -145,5 +148,11 @@ public class SongManager : MonoBehaviour
     {
         return (double)Instance.audioSource.timeSamples /
                Instance.audioSource.clip.frequency;
+    }
+    public void EndSong()
+    {
+        isGameActive = false;
+
+        audioSource.Stop();
     }
 }

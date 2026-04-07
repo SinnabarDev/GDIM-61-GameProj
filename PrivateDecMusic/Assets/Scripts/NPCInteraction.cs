@@ -16,6 +16,10 @@ public class NPCInteraction : MonoBehaviour
         {
             StartMinigame();
         }
+        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        {
+            EndMinigame();
+        }
     }
 
     void StartMinigame()
@@ -33,6 +37,14 @@ public class NPCInteraction : MonoBehaviour
 
         // Start audio
         SongManager.Instance.StartSong();
+    }
+
+    void EndMinigame()
+    {
+        rhythmGameUI.SetActive(false);
+        player.GetComponent<PlayerMovement>().enabled = true;
+
+        SongManager.Instance.EndSong();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
