@@ -1,41 +1,79 @@
 using UnityEngine;
+using System.IO;
 
 public class NPCInteraction : MonoBehaviour
 {
+    public static NPCInteraction currentNPC;
+
     public GameObject rhythmGameUI;
     public GameObject player;
 
-    [Header("This NPC's Song")]
-    public SongData npcSong;
+    [Header("NPC Data")]
+    public NPCData npcData;
+    private DialogueJSON dialogueData;
 
     private bool playerInRange = false;
+    private bool hasInteracted = false;
+    private bool hasStartedDialogue = false;
+
+    void Start()
+    {
+        LoadDialogue();
+    }
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E)&&
+        !hasStartedDialogue)
         {
-            StartMinigame();
+            hasStartedDialogue = true;
+            currentNPC = this;
+            StartDialogue();
         }
+
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             EndMinigame();
         }
     }
 
+    void LoadDialogue()
+    {
+        Debug.Log(npcData);
+        string path = Path.Combine(Application.streamingAssetsPath, npcData.dialogueFileName);
+
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            dialogueData = JsonUtility.FromJson<DialogueJSON>(json);
+        }
+        else
+        {
+            Debug.LogError("Dialogue file not found: " + path);
+        }
+    }
+
+    public void StartDialogue()
+{
+    DialogueManager.Instance.StartDialogue(
+        npcData.npcName,
+        dialogueData.firstDialogue,
+        OnDialogueFinished
+    );
+}
+
+    public void OnDialogueFinished()
+    {
+        StartMinigame();
+    }
+
     void StartMinigame()
     {
         rhythmGameUI.SetActive(true);
 
-        // Disable player movement
         player.GetComponent<PlayerMovement>().enabled = false;
 
-        // 🔥 LOAD THE SONG FIRST
-        SongManager.Instance.LoadSong(npcSong);
-
-        // Optional safety: ensure MIDI is ready before playing
-        SongManager.Instance.GetDataFromMidi();
-
-        // Start audio
+        SongManager.Instance.LoadSong(npcData.song, npcData.midiFileName);
         SongManager.Instance.StartSong();
     }
 

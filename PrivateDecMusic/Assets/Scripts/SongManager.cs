@@ -19,9 +19,7 @@ public class SongManager : MonoBehaviour
     public int inputDelayInMilliseconds;
 
     public bool isGameActive = false;
-
-    [Header("Song Settings")]
-    public SongData currentSong;
+    private string midiFileName;
 
     [Header("Note Settings")]
     public float noteTime;
@@ -51,14 +49,13 @@ public class SongManager : MonoBehaviour
     // PUBLIC API (USED BY NPCs)
     // -----------------------------
 
-    public void LoadSong(SongData song)
-    {
-        currentSong = song;
+    public void LoadSong(AudioClip clip, string midiFileName)
+{
+    audioSource.clip = clip;
+    this.midiFileName = midiFileName;
 
-        audioSource.clip = song.audioClip;
-
-        ReadMidi();
-    }
+    ReadMidi();
+}
 
     public void StartSong()
     {
@@ -72,25 +69,25 @@ public class SongManager : MonoBehaviour
     // -----------------------------
 
     private void ReadMidi()
+{
+    if (string.IsNullOrEmpty(midiFileName))
     {
-        if (currentSong == null)
-        {
-            Debug.LogError("No song assigned!");
-            return;
-        }
-
-        string path = Path.Combine(Application.streamingAssetsPath, currentSong.midiFileName);
-
-        if (Application.streamingAssetsPath.StartsWith("http://") ||
-            Application.streamingAssetsPath.StartsWith("https://"))
-        {
-            StartCoroutine(ReadFromWebsite(path));
-        }
-        else
-        {
-            ReadFromFile(path);
-        }
+        Debug.LogError("No MIDI file assigned!");
+        return;
     }
+
+    string path = Path.Combine(Application.streamingAssetsPath, midiFileName);
+
+    if (Application.streamingAssetsPath.StartsWith("http://") ||
+        Application.streamingAssetsPath.StartsWith("https://"))
+    {
+        StartCoroutine(ReadFromWebsite(path));
+    }
+    else
+    {
+        ReadFromFile(path);
+    }
+}
 
     private IEnumerator ReadFromWebsite(string path)
     {
