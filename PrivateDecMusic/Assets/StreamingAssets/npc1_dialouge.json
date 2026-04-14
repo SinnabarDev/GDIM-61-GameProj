@@ -1,8 +1,10 @@
 {
   "firstDialogue": [
-    "Hey, I'm DJ Pulse.",
+    "Hey, I'm Ram, Ram Somberts.",
     "Welcome to the rhythm zone.",
-    "Stay on beat."
+    "I used to be a youth like you!",
+    "Until I took Game Design and Interactive Media 61.",
+    "Stay on beat if you want to know more."
   ],
   "repeatDialogue": ["Back again?", "Let's go."]
 }

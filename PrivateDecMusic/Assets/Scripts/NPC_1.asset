@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf0762ce77a61046a5eb8b290beeafb, type: 3}
   m_Name: NPC_1
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
-  npcName: Sam Roberts
+  npcName: RAM SOMBERTS
   dialogueFileName: npc1_dialouge.json
   song: {fileID: 8300000, guid: bd87b666bbef3e8439bc86786b9d5d39, type: 3}
   midiFileName: test.mid

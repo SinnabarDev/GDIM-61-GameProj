@@ -13,8 +13,10 @@ public class NPCInteraction : MonoBehaviour
     private DialogueJSON dialogueData;
 
     private bool playerInRange = false;
-    private bool hasInteracted = false;
     private bool hasStartedDialogue = false;
+[Header("Button Interaction")]
+    public GameObject interactPromptPrefab;
+private GameObject currentPrompt;
 
     void Start()
     {
@@ -88,12 +90,27 @@ public class NPCInteraction : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
             playerInRange = true;
+            if (interactPromptPrefab != null && currentPrompt == null)
+        {
+            currentPrompt = Instantiate(interactPromptPrefab, transform);
+
+            currentPrompt.transform.localPosition = new Vector3(0, 2f, 0); // above NPC
+        }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
             playerInRange = false;
+
+        if (currentPrompt != null)
+        {
+            Destroy(currentPrompt);
+        }
     }
+}
 }
