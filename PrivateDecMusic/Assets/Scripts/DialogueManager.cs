@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     private int index;
     private System.Action onComplete;
 
+
     void Awake()
     {
         Instance = this;

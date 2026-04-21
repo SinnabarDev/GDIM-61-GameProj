@@ -14,6 +14,7 @@ public class NPCInteraction : MonoBehaviour
 
     private bool playerInRange = false;
     private bool hasStartedDialogue = false;
+    private bool hasTalkedBefore = false;
 [Header("Button Interaction")]
     public GameObject interactPromptPrefab;
 private GameObject currentPrompt;
@@ -55,11 +56,23 @@ private GameObject currentPrompt;
         }
     }
 
-    public void StartDialogue()
+public void StartDialogue()
 {
+    string[] dialogueToUse;
+
+    if (!hasTalkedBefore)
+    {
+        dialogueToUse = dialogueData.firstDialogue;
+        hasTalkedBefore = true;
+    }
+    else
+    {
+        dialogueToUse = dialogueData.repeatDialogue;
+    }
+
     DialogueManager.Instance.StartDialogue(
         npcData.npcName,
-        dialogueData.firstDialogue,
+        dialogueToUse,
         OnDialogueFinished
     );
 }
@@ -80,12 +93,15 @@ private GameObject currentPrompt;
     }
 
     void EndMinigame()
-    {
-        rhythmGameUI.SetActive(false);
-        player.GetComponent<PlayerMovement>().enabled = true;
+{
+    rhythmGameUI.SetActive(false);
+    player.GetComponent<PlayerMovement>().enabled = true;
 
-        SongManager.Instance.EndSong();
-    }
+    SongManager.Instance.EndSong();
+
+    hasStartedDialogue = false; // 🔥 allow interaction again
+    currentNPC = null;
+}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

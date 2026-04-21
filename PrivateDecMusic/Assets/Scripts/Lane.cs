@@ -124,4 +124,21 @@ public class Lane : MonoBehaviour
     {
         ScoreManager.Miss();
     }
+    public void ResetLane()
+{
+    // 1. Destroy spawned notes
+    foreach (Transform child in transform)
+    {
+        Destroy(child.gameObject);
+    }
+
+    // 2. Clear runtime state
+    notes.Clear();
+    timeStamps.Clear();
+    inputBuffer.Clear();
+
+    // 3. Reset indexes (CRITICAL)
+    spawnIndex = 0;
+    inputIndex = 0;
+}
 }

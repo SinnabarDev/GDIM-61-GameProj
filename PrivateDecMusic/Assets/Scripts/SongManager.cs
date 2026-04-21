@@ -149,7 +149,12 @@ public class SongManager : MonoBehaviour
     public void EndSong()
     {
         isGameActive = false;
-
+CancelInvoke(nameof(StartSong));
         audioSource.Stop();
+        foreach (var lane in lanes)
+    {
+        lane.ResetLane();
     }
+    }
+    
 }
