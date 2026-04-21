@@ -96,7 +96,7 @@ private GameObject currentPrompt;
         {
             currentPrompt = Instantiate(interactPromptPrefab, transform);
 
-            currentPrompt.transform.localPosition = new Vector3(0, 2f, 0); // above NPC
+            currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
         }
         }
     }

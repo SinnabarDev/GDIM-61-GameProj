@@ -20,21 +20,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
+        float move = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
-        if(move != 0)
-        {
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
+        
+        animator.SetBool("isWalking", move != 0);
+
 
         // Flip logic
         if (move > 0 && !isFacingRight)
