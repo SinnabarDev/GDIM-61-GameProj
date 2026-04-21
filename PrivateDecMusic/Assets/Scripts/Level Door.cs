@@ -33,4 +33,11 @@ public class LevelDoor : MonoBehaviour
         if (collision.CompareTag("Player"))
             playerInRange = false;
     }
+    public void TryUnlock(float accuracyPercent)
+{
+    if (accuracyPercent >= 89f)
+    {
+        UnlockDoor();
+    }
+}
 }

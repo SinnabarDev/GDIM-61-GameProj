@@ -18,7 +18,7 @@ public class NPCInteraction : MonoBehaviour
 [Header("Button Interaction")]
     public GameObject interactPromptPrefab;
 private GameObject currentPrompt;
-
+public LevelDoor door;
     void Start()
     {
         LoadDialogue();
@@ -34,7 +34,7 @@ private GameObject currentPrompt;
             StartDialogue();
         }
 
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && Input.GetKeyDown(KeyCode.Escape))
         {
             EndMinigame();
         }
@@ -87,20 +87,19 @@ public void StartDialogue()
         rhythmGameUI.SetActive(true);
 
         player.GetComponent<PlayerMovement>().enabled = false;
-
+        ScoreManager.ResetScore();
         SongManager.Instance.LoadSong(npcData.song, npcData.midiFileName);
         SongManager.Instance.StartSong();
     }
 
-    void EndMinigame()
+public void EndMinigame()
 {
     rhythmGameUI.SetActive(false);
     player.GetComponent<PlayerMovement>().enabled = true;
-
+    int totalNotes = SongManager.Instance.GetTotalNotes();
+    float accuracy = ScoreManager.GetAccuracy(totalNotes) * 100f;
+    door.TryUnlock(accuracy);
     SongManager.Instance.EndSong();
-
-    hasStartedDialogue = false; // 🔥 allow interaction again
-    currentNPC = null;
 }
 
     private void OnTriggerEnter2D(Collider2D collision)

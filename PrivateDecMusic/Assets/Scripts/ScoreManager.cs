@@ -1,31 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+
     public AudioSource hitSFX;
     public AudioSource missSFX;
 
-    static int comboScore;
+    public static int hits;
+    public static int misses;
+
     void Start()
     {
         Instance = this;
-        comboScore = 0;
+
+        hits = 0;
+        misses = 0;
     }
-    public static void Hit()
-    {
-        comboScore += 1;
-        Instance.hitSFX.Play();
-    }
+
+public static void Hit()
+{
+    hits++;
+    Instance.hitSFX.Play();
+}
+
     public static void Miss()
     {
-        comboScore = 0;
-        Instance.missSFX.Play();    
+        misses++;
+        Instance.missSFX.Play();
     }
-    private void Update()
-    {
+    
+public static float GetAccuracy(int totalNotes)
+{
+    if (totalNotes == 0) return 0f;
 
+    return (float)hits / totalNotes;
+}
+
+    public static void ResetScore()
+    {
+        hits = 0;
+        misses = 0;
     }
 }

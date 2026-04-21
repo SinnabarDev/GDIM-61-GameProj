@@ -32,6 +32,7 @@ public class SongManager : MonoBehaviour
             return noteTapY - (noteSpawnY - noteTapY);
         }
     }
+    public NPCInteraction npcScript;
 
     public static MidiFile midiFile;
 
@@ -62,6 +63,7 @@ public class SongManager : MonoBehaviour
         isGameActive = true;
 
         audioSource.Play();
+        StartCoroutine(WaitForMusicEnd());
     }
 
     // -----------------------------
@@ -136,6 +138,17 @@ public class SongManager : MonoBehaviour
         CancelInvoke(nameof(StartSong));
         Invoke(nameof(StartSong), songDelayInSeconds);
     }
+    public int GetTotalNotes()
+{
+    int total = 0;
+
+    foreach (var lane in lanes)
+    {
+        total += lane.timeStamps.Count;
+    }
+
+    return total;
+}
 
     // -----------------------------
     // TIME HELPERS
@@ -149,12 +162,23 @@ public class SongManager : MonoBehaviour
     public void EndSong()
     {
         isGameActive = false;
-CancelInvoke(nameof(StartSong));
+        CancelInvoke(nameof(StartSong));
+        StopAllCoroutines();
         audioSource.Stop();
         foreach (var lane in lanes)
+        {
+            lane.ResetLane();
+        }
+    }
+    IEnumerator WaitForMusicEnd()
     {
-        lane.ResetLane();
+    // 1. Wait a frame to ensure AudioSource.Play() has registered
+    yield return null; 
+
+    // 2. Wait while it is playing
+    yield return new WaitWhile(() => audioSource.isPlaying);
+
+    // 3. Audio finished, end minigame
+    npcScript.EndMinigame();
     }
-    }
-    
 }

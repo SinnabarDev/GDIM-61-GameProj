@@ -52,7 +52,7 @@ public class Lane : MonoBehaviour
         // -----------------------------
         // SPAWN NOTES
         // -----------------------------
-        while (spawnIndex < timeStamps.Count &&
+        while(spawnIndex < timeStamps.Count &&
                audioTime >= timeStamps[spawnIndex] - SongManager.Instance.noteTime)
         {
             var noteObj = Instantiate(notePrefab, transform);
@@ -63,7 +63,6 @@ public class Lane : MonoBehaviour
 
             spawnIndex++;
         }
-
         // -----------------------------
         // INPUT BUFFER (FIX)
         // -----------------------------
