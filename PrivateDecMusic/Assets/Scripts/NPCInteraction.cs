@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Networking;
+using System.Collections;
 using System.IO;
 
 public class NPCInteraction : MonoBehaviour
@@ -21,7 +23,7 @@ private GameObject currentPrompt;
 public LevelDoor door;
     void Start()
     {
-        LoadDialogue();
+        StartCoroutine(LoadDialogue());
     }
 
     void Update()
@@ -40,21 +42,28 @@ public LevelDoor door;
         }
     }
 
-    void LoadDialogue()
-    {
-        Debug.Log(npcData);
-        string path = Path.Combine(Application.streamingAssetsPath, npcData.dialogueFileName);
+private IEnumerator LoadDialogue()
+{
+    string path = Path.Combine(Application.streamingAssetsPath, npcData.dialogueFileName);
 
-        if (File.Exists(path))
+    using (UnityWebRequest www = UnityWebRequest.Get(path))
+    {
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
         {
-            string json = File.ReadAllText(path);
-            dialogueData = JsonUtility.FromJson<DialogueJSON>(json);
+            Debug.LogError("Dialogue load failed: " + www.error);
+            yield break;
         }
-        else
-        {
-            Debug.LogError("Dialogue file not found: " + path);
-        }
+
+        string json = www.downloadHandler.text;
+
+        dialogueData = JsonUtility.FromJson<DialogueJSON>(json);
+
+        Debug.Log("Loaded dialogue for " + npcData.npcName);
+
     }
+}
 
 public void StartDialogue()
 {
@@ -95,6 +104,7 @@ public void StartDialogue()
 public void EndMinigame()
 {
     rhythmGameUI.SetActive(false);
+    hasStartedDialogue = false;
     player.GetComponent<PlayerMovement>().enabled = true;
     int totalNotes = SongManager.Instance.GetTotalNotes();
     float accuracy = ScoreManager.GetAccuracy(totalNotes) * 100f;
