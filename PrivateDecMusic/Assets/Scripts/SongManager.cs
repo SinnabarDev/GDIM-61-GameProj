@@ -5,6 +5,7 @@ using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using System.IO;
 using UnityEngine.Networking;
+using TMPro;
 
 public class SongManager : MonoBehaviour
 {
@@ -36,9 +37,19 @@ public class SongManager : MonoBehaviour
 
     public static MidiFile midiFile;
 
+    [Header("Countdown")]
+    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private int countdownStart = 3;
+
     void Awake()
     {
         Instance = this;
+
+    if (audioSource != null)
+    {
+        audioSource.playOnAwake = false;
+        audioSource.Stop();
+    }
     }
 
     void Start()
@@ -135,8 +146,7 @@ public class SongManager : MonoBehaviour
         foreach (var lane in lanes)
             lane.SetTimeStamps(array);
 
-        CancelInvoke(nameof(StartSong));
-        Invoke(nameof(StartSong), songDelayInSeconds);
+        StartCoroutine(StartCountdown());
     }
     public int GetTotalNotes()
 {
@@ -181,4 +191,24 @@ public class SongManager : MonoBehaviour
     // 3. Audio finished, end minigame
     npcScript.EndMinigame();
     }
+
+    IEnumerator StartCountdown()
+{
+    isGameActive = false;
+
+    countdownText.gameObject.SetActive(true);
+
+    for (int i = countdownStart; i > 0; i--)
+    {
+        countdownText.text = i.ToString();
+        yield return new WaitForSeconds(1f);
+    }
+
+    countdownText.text = "GO!";
+    yield return new WaitForSeconds(0.5f);
+
+    countdownText.gameObject.SetActive(false);
+
+    StartSong();
+}
 }

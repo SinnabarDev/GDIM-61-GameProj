@@ -98,7 +98,6 @@ public void StartDialogue()
         player.GetComponent<PlayerMovement>().enabled = false;
         ScoreManager.ResetScore();
         SongManager.Instance.LoadSong(npcData.song, npcData.midiFileName);
-        SongManager.Instance.StartSong();
     }
 
 public void EndMinigame()
