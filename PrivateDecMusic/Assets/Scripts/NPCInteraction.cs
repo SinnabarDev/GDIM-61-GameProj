@@ -6,7 +6,7 @@ using System.IO;
 public class NPCInteraction : MonoBehaviour
 {
     public static NPCInteraction currentNPC;
-
+    public ResultScreen resultsScreen;
     public GameObject rhythmGameUI;
     public GameObject player;
 
@@ -40,6 +40,11 @@ public LevelDoor door;
         {
             EndMinigame();
         }
+        if (resultsScreen.panel.activeSelf &&
+    Input.GetKeyDown(KeyCode.E))
+{
+    ContinueAfterResults();
+}
     }
 
 private IEnumerator LoadDialogue()
@@ -103,12 +108,28 @@ public void StartDialogue()
 public void EndMinigame()
 {
     rhythmGameUI.SetActive(false);
-    hasStartedDialogue = false;
-    player.GetComponent<PlayerMovement>().enabled = true;
+
     int totalNotes = SongManager.Instance.GetTotalNotes();
-    float accuracy = ScoreManager.GetAccuracy(totalNotes) * 100f;
-    door.TryUnlock(accuracy);
+
     SongManager.Instance.EndSong();
+
+    Debug.Log("Showing results screen");
+
+    resultsScreen.ShowResults(totalNotes);
+}
+private void ContinueAfterResults()
+{
+    resultsScreen.HideResults();
+
+    hasStartedDialogue = false;
+
+    player.GetComponent<PlayerMovement>().enabled = true;
+
+    int totalNotes = SongManager.Instance.GetTotalNotes();
+    float accuracy =
+        ScoreManager.GetAccuracy(totalNotes) * 100f;
+
+    door.TryUnlock(accuracy);
 }
 
     private void OnTriggerEnter2D(Collider2D collision)
