@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 30779427}
   - component: {fileID: 30779430}
   m_Layer: 0
-  m_Name: Square
+  m_Name: SceneCollider
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2943,7 +2943,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.93, y: 8.38}
+    oldSize: {x: 4.59, y: 8.52}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3000,7 +3000,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2590177076723173138, guid: 2b87363094f5d0e40a93fbadcd610e53, type: 3}
+  m_Sprite: {fileID: 1994830107564515252, guid: 33dc8a07e0ad22b42ada4a9207f0fcd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3042,6 +3042,7 @@ MonoBehaviour:
   polygraph: {fileID: 456071767}
   player: {fileID: 200264005}
   npcData: {fileID: 11400000, guid: ef239ac5c85b51a4f8697a8d2f9b9b70, type: 2}
+  anim: {fileID: 0}
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
   door: {fileID: 177456569}
 --- !u!95 &1150576308
@@ -3475,6 +3476,8 @@ MonoBehaviour:
   player: {fileID: 200264007}
   smoothSpeed: 0.1
   offset: {x: 0, y: 1, z: 0}
+  leftLimit: -3.35
+  rightLimit: 1
 --- !u!1 &1525372958
 GameObject:
   m_ObjectHideFlags: 0

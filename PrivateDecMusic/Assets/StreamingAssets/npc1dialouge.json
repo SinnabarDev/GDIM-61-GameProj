@@ -1,7 +1,8 @@
 {
   "firstDialogue": [
-    "Hey, I'm Ram, Ram Somberts.",
-    "Welcome to the rhythm zone.",
+    "First line\nSecond line",
+    "Ram:\nHey, I'm Ram, Ram Somberts.",
+    "Ram:\nWelcome to the rhythm zone.",
     "I used to be a youth like you!",
     "Until I took Game Design and Interactive Media 61.",
     "Stay on beat if you want to know more."

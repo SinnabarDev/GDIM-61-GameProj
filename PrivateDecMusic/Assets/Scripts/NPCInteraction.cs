@@ -14,6 +14,8 @@ public class NPCInteraction : MonoBehaviour
     [Header("NPC Data")]
     public NPCData npcData;
     private DialogueJSON dialogueData;
+    public Animator anim;
+
 
     private bool playerInRange = false;
     private bool hasStartedDialogue = false;
@@ -27,6 +29,8 @@ public class NPCInteraction : MonoBehaviour
     void Start()
     {
         StartCoroutine(LoadDialogue());
+        anim = GetComponent<Animator>();
+        anim.SetBool("isHypno", true);
     }
 
     void Update()
@@ -115,13 +119,8 @@ public void EndMinigame()
 
     int totalNotes = SongManager.Instance.GetTotalNotes();
     float accuracy = ScoreManager.GetAccuracy(totalNotes);
-    Debug.Log(accuracy);
     lastaccuracy = accuracy;
-
     SongManager.Instance.EndSong();
-
-    Debug.Log("Showing results screen");
-
     resultsScreen.ShowResults(totalNotes);
 }
 private void ContinueAfterResults(float lastaccuracy)
@@ -130,7 +129,8 @@ private void ContinueAfterResults(float lastaccuracy)
     door.TryUnlock(lastaccuracy);
     if (lastaccuracy>89f)
     {
-    DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, ConvEnd);
+        anim.SetBool("isHypno", false);
+        DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, ConvEnd);
     }
     else
     {ConvEnd();}

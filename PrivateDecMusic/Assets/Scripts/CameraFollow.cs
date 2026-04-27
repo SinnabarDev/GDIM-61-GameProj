@@ -6,22 +6,31 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
+    [Header("X Constraints")]
+    [SerializeField] private float leftLimit = -100f;
+    [SerializeField] private float rightLimit = 100f;
     void LateUpdate()
     {
-        Vector3 desiredPosition = player.position + offset;
-                if(Mathf.Abs(desiredPosition.x) > 1.5f )
-        {
-            if (desiredPosition.x > 0)
-            {
-                desiredPosition.x = 1.5f;
-            }
-            else if (desiredPosition.x < 0)
-            {
-                desiredPosition.x = -1.5f;
-            }
-        }
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        if (player == null) return;
 
-        transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y, transform.position.z);
+        // Desired follow position
+        Vector3 desiredPosition = player.position + offset;
+
+        // Clamp only X movement
+        desiredPosition.x = Mathf.Clamp(desiredPosition.x, leftLimit, rightLimit);
+
+        // Smooth follow
+        Vector3 smoothedPosition = Vector3.Lerp(
+            transform.position,
+            desiredPosition,
+            smoothSpeed
+        );
+
+        // Keep camera Z unchanged
+        transform.position = new Vector3(
+            smoothedPosition.x,
+            smoothedPosition.y,
+            transform.position.z
+        );
     }
 }
