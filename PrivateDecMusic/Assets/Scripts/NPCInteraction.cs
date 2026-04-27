@@ -16,11 +16,12 @@ public class NPCInteraction : MonoBehaviour
 
     private bool playerInRange = false;
     private bool hasStartedDialogue = false;
+    private bool hasEndedDialouge = true;
     private bool hasTalkedBefore = false;
-[Header("Button Interaction")]
+    [Header("Button Interaction")]
     public GameObject interactPromptPrefab;
-private GameObject currentPrompt;
-public LevelDoor door;
+    private GameObject currentPrompt;
+    public LevelDoor door;
     void Start()
     {
         StartCoroutine(LoadDialogue());
@@ -28,23 +29,21 @@ public LevelDoor door;
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E)&&
-        !hasStartedDialogue)
+        if (playerInRange && Input.GetKeyDown(KeyCode.E)&&!hasStartedDialogue)
         {
             hasStartedDialogue = true;
             currentNPC = this;
             StartDialogue();
         }
 
-        if (playerInRange && Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && hasEndedDialouge)
         {
             EndMinigame();
         }
-        if (resultsScreen.panel.activeSelf &&
-    Input.GetKeyDown(KeyCode.E))
-{
-    ContinueAfterResults();
-}
+        if (resultsScreen.panel.activeSelf && Input.GetKeyDown(KeyCode.E))
+        {
+            ContinueAfterResults();
+        }
     }
 
 private IEnumerator LoadDialogue()
@@ -65,7 +64,7 @@ private IEnumerator LoadDialogue()
 
         dialogueData = JsonUtility.FromJson<DialogueJSON>(json);
 
-        Debug.Log("Loaded dialogue for " + npcData.npcName);
+        Debug.Log("Loaded dialogue");
 
     }
 }
@@ -73,6 +72,7 @@ private IEnumerator LoadDialogue()
 public void StartDialogue()
 {
     string[] dialogueToUse;
+    hasEndedDialouge = false;
 
     if (!hasTalkedBefore)
     {
@@ -85,7 +85,6 @@ public void StartDialogue()
     }
 
     DialogueManager.Instance.StartDialogue(
-        npcData.npcName,
         dialogueToUse,
         OnDialogueFinished
     );
@@ -93,6 +92,7 @@ public void StartDialogue()
 
     public void OnDialogueFinished()
     {
+        hasEndedDialouge = true;
         StartMinigame();
     }
 
@@ -119,16 +119,13 @@ public void EndMinigame()
 }
 private void ContinueAfterResults()
 {
+    int totalNotes = SongManager.Instance.GetTotalNotes();
+    float accuracy = ScoreManager.GetAccuracy(totalNotes) * 100f;
     resultsScreen.HideResults();
 
-    hasStartedDialogue = false;
+    hasStartedDialogue = false; 
 
     player.GetComponent<PlayerMovement>().enabled = true;
-
-    int totalNotes = SongManager.Instance.GetTotalNotes();
-    float accuracy =
-        ScoreManager.GetAccuracy(totalNotes) * 100f;
-
     door.TryUnlock(accuracy);
 }
 

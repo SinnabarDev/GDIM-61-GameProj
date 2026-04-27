@@ -7,7 +7,7 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
-    public TMP_Text nameText;
+    //public TMP_Text nameText;
 
     private string[] lines;
     private int index;
@@ -19,11 +19,11 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    public void StartDialogue(string npcName, string[] dialogueLines, System.Action onFinish)
+    public void StartDialogue(string[] dialogueLines, System.Action onFinish)
     {
         dialoguePanel.SetActive(true);
 
-        nameText.text = npcName;
+        //nameText.text = npcName;
 
         lines = dialogueLines;
         index = 0;

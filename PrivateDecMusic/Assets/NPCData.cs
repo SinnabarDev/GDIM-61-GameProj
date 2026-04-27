@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NPCData", menuName = "Scriptable Objects/NPCData")]
 public class NPCData : ScriptableObject
 {
-    public string npcName;
+    //public string npcName;
     [Header("Dialogue")]
     public string dialogueFileName;
     
