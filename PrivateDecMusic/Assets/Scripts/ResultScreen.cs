@@ -13,7 +13,7 @@ public class ResultScreen : MonoBehaviour
     public TextMeshProUGUI missText;
     public TextMeshProUGUI accuracyText;
     public NPCInteraction npcInteraction;
-    
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,7 +38,7 @@ public class ResultScreen : MonoBehaviour
         int misses = ScoreManager.misses;
 
         float accuracy =
-            ScoreManager.GetAccuracy(totalNotes) * 100f;
+            ScoreManager.GetAccuracy(totalNotes);
 
         if (accuracy >= 89f)
         {titleText.text = "INTERROGATION SUCCESSFUL";}
@@ -48,7 +48,7 @@ public class ResultScreen : MonoBehaviour
         hitText.text = "HITS: " + hits;
         missText.text = "MISSES: " + misses;
         accuracyText.text =
-            "ACCURACY: " + accuracy.ToString("F1") + "%";
+        "ACCURACY: " + accuracy.ToString("F1") + "%";
     }
      string GetRank(float accuracy)
     {

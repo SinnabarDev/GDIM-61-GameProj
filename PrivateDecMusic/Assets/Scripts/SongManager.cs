@@ -211,4 +211,10 @@ public class SongManager : MonoBehaviour
 
     StartSong();
 }
+public float GetSongProgress()
+{
+    if (audioSource.clip == null) return 0f;
+
+    return audioSource.time / audioSource.clip.length;
+}
 }

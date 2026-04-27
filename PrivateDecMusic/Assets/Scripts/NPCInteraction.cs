@@ -8,6 +8,7 @@ public class NPCInteraction : MonoBehaviour
     public static NPCInteraction currentNPC;
     public ResultScreen resultsScreen;
     public GameObject rhythmGameUI;
+    public GameObject polygraph;
     public GameObject player;
 
     [Header("NPC Data")]
@@ -22,6 +23,7 @@ public class NPCInteraction : MonoBehaviour
     public GameObject interactPromptPrefab;
     private GameObject currentPrompt;
     public LevelDoor door;
+    private float lastaccuracy = 0f;
     void Start()
     {
         StartCoroutine(LoadDialogue());
@@ -36,13 +38,13 @@ public class NPCInteraction : MonoBehaviour
             StartDialogue();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && hasEndedDialouge)
+        if (playerInRange && Input.GetKeyDown(KeyCode.Escape) && hasEndedDialouge)
         {
             EndMinigame();
         }
         if (resultsScreen.panel.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
-            ContinueAfterResults();
+            ContinueAfterResults(lastaccuracy);
         }
     }
 
@@ -99,6 +101,7 @@ public void StartDialogue()
     void StartMinigame()
     {
         rhythmGameUI.SetActive(true);
+        polygraph.SetActive(true);
 
         player.GetComponent<PlayerMovement>().enabled = false;
         ScoreManager.ResetScore();
@@ -108,8 +111,12 @@ public void StartDialogue()
 public void EndMinigame()
 {
     rhythmGameUI.SetActive(false);
+    polygraph.SetActive(false);
 
     int totalNotes = SongManager.Instance.GetTotalNotes();
+    float accuracy = ScoreManager.GetAccuracy(totalNotes);
+    Debug.Log(accuracy);
+    lastaccuracy = accuracy;
 
     SongManager.Instance.EndSong();
 
@@ -117,16 +124,29 @@ public void EndMinigame()
 
     resultsScreen.ShowResults(totalNotes);
 }
-private void ContinueAfterResults()
+private void ContinueAfterResults(float lastaccuracy)
 {
-    int totalNotes = SongManager.Instance.GetTotalNotes();
-    float accuracy = ScoreManager.GetAccuracy(totalNotes) * 100f;
+    Debug.Log(lastaccuracy);
+    door.TryUnlock(lastaccuracy);
+    if (lastaccuracy>89f)
+    {
+    DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, ConvEnd);
+    }
+    else
+    {ConvEnd();}
     resultsScreen.HideResults();
-
-    hasStartedDialogue = false; 
-
+}
+public void ConvEnd()
+{
     player.GetComponent<PlayerMovement>().enabled = true;
-    door.TryUnlock(accuracy);
+    StartCoroutine(ResetInteractionLock());
+}
+private IEnumerator ResetInteractionLock()
+{
+    yield return new WaitForEndOfFrame();
+    yield return new WaitForSeconds(0.1f);
+
+    hasStartedDialogue = false;
 }
 
     private void OnTriggerEnter2D(Collider2D collision)

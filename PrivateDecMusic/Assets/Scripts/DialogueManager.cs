@@ -22,7 +22,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(string[] dialogueLines, System.Action onFinish)
     {
         dialoguePanel.SetActive(true);
-
         //nameText.text = npcName;
 
         lines = dialogueLines;
@@ -64,8 +63,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        onComplete?.Invoke();
         dialoguePanel.SetActive(false);
 
-        onComplete?.Invoke();
     }
 }

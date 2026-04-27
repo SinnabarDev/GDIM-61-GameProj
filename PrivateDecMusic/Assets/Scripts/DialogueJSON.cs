@@ -5,4 +5,5 @@ public class DialogueJSON
 {
     public string[] firstDialogue;
     public string[] repeatDialogue;
+    public string[] hintDialogue;
 }

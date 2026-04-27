@@ -6,5 +6,9 @@
     "Until I took Game Design and Interactive Media 61.",
     "Stay on beat if you want to know more."
   ],
-  "repeatDialogue": ["Back again?", "Let's go."]
+  "repeatDialogue": ["Back again?", "Let's go."],
+  "hintDialogue": [
+    "He is the Underground Artist.",
+    "I do not remember much more."
+  ]
 }
