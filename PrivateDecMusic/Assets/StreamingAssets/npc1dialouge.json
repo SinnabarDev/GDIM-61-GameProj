@@ -1,15 +1,44 @@
 {
   "firstDialogue": [
-    "First line\nSecond line",
-    "Ram:\nHey, I'm Ram, Ram Somberts.",
-    "Ram:\nWelcome to the rhythm zone.",
-    "I used to be a youth like you!",
-    "Until I took Game Design and Interactive Media 61.",
-    "Stay on beat if you want to know more."
+    "Dizzy Npc:\nehh…",
+    "Detective:\nHuh? Is she ok?",
+    "Dizzy Npc:\nuggh…",
+    "Detective:\nExcuse me? Miss? Are you ok?",
+    "Dizzy Npc:\nThey…  will know… his name",
+    "Detective:\n(That’s similar to the messages left around in the city.)",
+    "Detective:\n(Maybe she knows something about the disappearances and who’s behind them.)",
+    "Detective:\nExcuse me miss, but do you-",
+    "Dizzy Npc:\nehh…",
+    "Detective:\n(i don’t think I’m getting through to her..)",
+    "Detective:\n(Maybe a little music will help)" 
   ],
   "repeatDialogue": ["Back again?", "Let's go."],
   "hintDialogue": [
-    "He is the Underground Artist.",
-    "I do not remember much more."
+    "Undizzy Npc:\nugghhh.. Huh? What happened? Why am I out here in this alley?",
+    "Detective:\nI would also like to know that…",
+    "Detective:\nYou seemed to have been under some kind of… mind control?",
+    "Undizzy Npc:\nW-what?",
+    "Detective:\nYeah, and things have been a bit strange in the city lately.",
+    "Detective:\nThere’s been many disappearances recently",
+    "Detective:\nand I’m trying to figure out who’s behind it.",
+    "Detective:\nYou mentioned the phrase “They will know his name” while you were dizzy,",
+    "Detective:\nwhich is very similar to the messages left across the city ever since people started going missing",
+    "Detective:\nSo I can only infer that he has something to do with both the disappearances and what happened to you",
+    "Undizzy Npc:\n“They will know his name”, that sounds… kinda familiar",
+    "Detective:\nHuh?",
+    "Undizzy Npc:\nIt’s still really blurry, but I think I remember hearing someone say something like that to me,",
+    "Undizzy Npc:\nand I was in some kind of area filled with loud music",
+    "Undizzy Npc:\nBefore I ended up here at least…",
+    "Detective:\nDo you know where this area is?",
+    "Undizzy Npc:\nNot exactly… but to me it looked like it was underground",
+    "Detective:\nUnderground… hmmmmm…",
+    "Detective:\nDo you know what the person looked like?",
+    "Undizzy Npc:\nNo not at all. Sorry.",
+    "Detective:\nOk, thanks for the info.",
+    "Detective:\nI’ll make sure whoever is doing this will be caught and put to justice",
+    "Undizzy:\nThank you, good luck!"
+
+
+
   ]
 }
