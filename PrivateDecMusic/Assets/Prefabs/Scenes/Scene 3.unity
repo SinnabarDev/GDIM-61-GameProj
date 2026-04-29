@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelDoor
   unlocked: 0
-  nextSceneName: Scene 1
+  nextSceneName: Scene 4
 --- !u!212 &177456570
 SpriteRenderer:
   serializedVersion: 2
@@ -341,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 177456567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.41, y: -1.65, z: 0}
+  m_LocalPosition: {x: 9.74, y: -1.65, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2906,7 +2906,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.52, y: 8.44}
+    oldSize: {x: 4.16, y: 8.42}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2963,7 +2963,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5786387606152322061, guid: 8d590a48751e35b4b940f3c3e49374d7, type: 3}
+  m_Sprite: {fileID: 8332810683604095482, guid: 837e768b7fb859748996a732ad8bc8ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
