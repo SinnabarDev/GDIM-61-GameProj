@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf0762ce77a61046a5eb8b290beeafb, type: 3}
   m_Name: NPC_2
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
-  npcName: RAM SOMBERTS
-  dialogueFileName: npc1dialouge.json
+  dialogueFileName: npc2dialouge.json
   song: {fileID: 8300000, guid: fd1d6af2b3d29d343a349bfaa99e145d, type: 3}
   midiFileName: detectiveChart1.mid

@@ -10,7 +10,7 @@
     "Detective:\nExcuse me miss, but do you-",
     "Dizzy Npc:\nehh…",
     "Detective:\n(i don’t think I’m getting through to her..)",
-    "Detective:\n(Maybe a little music will help)"
+    "Detective:\n(Maybe a little music will help)" 
   ],
   "repeatDialogue": ["Back again?", "Let's go."],
   "hintDialogue": [
@@ -27,13 +27,13 @@
     "Undizzy Npc:\n“They will know his name”, that sounds… kinda familiar",
     "Detective:\nHuh?",
     "Undizzy Npc:\nIt’s still really blurry, but I think I remember hearing someone say something like that to me,",
-    "Undizzy Npc:\nand That door behind me, I remember the area filled with loud music",
+    "Undizzy Npc:\nand I was in some kind of area filled with loud music",
     "Undizzy Npc:\nBefore I ended up here at least…",
     "Detective:\nDo you know where this area is?",
     "Undizzy Npc:\nNot exactly… but to me it looked like it was underground",
     "Detective:\nUnderground… hmmmmm…",
     "Detective:\nDo you know what the person looked like?",
-    "Undizzy Npc:\nNo not at all. Sorry, you can try out the door I just unlocked it",
+    "Undizzy Npc:\nNo not at all. Sorry.",
     "Detective:\nOk, thanks for the info.",
     "Detective:\nI’ll make sure whoever is doing this will be caught and put to justice",
     "Undizzy:\nThank you, good luck!"
