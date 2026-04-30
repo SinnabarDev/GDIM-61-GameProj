@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
 
     public static int hits;
     public static int misses;
-
+    public GameObject hitVFXPrefab;
     void Start()
     {
         Instance = this;
@@ -18,10 +18,15 @@ public class ScoreManager : MonoBehaviour
         misses = 0;
     }
 
-public static void Hit()
+public static void Hit(Vector3 position)
 {
     hits++;
     Instance.hitSFX.Play();
+
+    if (Instance.hitVFXPrefab != null)
+    {
+        Instantiate(Instance.hitVFXPrefab, position, Quaternion.identity);
+    }
 }
 
     public static void Miss()

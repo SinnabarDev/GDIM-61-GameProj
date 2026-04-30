@@ -65,6 +65,5 @@ public class DialogueManager : MonoBehaviour
     {
         onComplete?.Invoke();
         dialoguePanel.SetActive(false);
-
     }
 }

@@ -40,7 +40,7 @@ public class ResultScreen : MonoBehaviour
         float accuracy =
             ScoreManager.GetAccuracy(totalNotes);
 
-        if (accuracy >= 89f)
+        if (accuracy >= 85f)
         {titleText.text = "INTERROGATION SUCCESSFUL";}
         else
         {titleText.text = "INTERROGATION FAILED";}
@@ -64,9 +64,8 @@ public class ResultScreen : MonoBehaviour
         panel.SetActive(false);
     }
     public void Retry()
-{
+    {
     HideResults();
     ScoreManager.ResetScore();
-    npcInteraction.StartDialogue();
-}
+    }
 }

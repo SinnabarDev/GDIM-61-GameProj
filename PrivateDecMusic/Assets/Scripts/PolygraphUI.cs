@@ -36,6 +36,23 @@ public class PolygraphUI : MonoBehaviour
         line.startColor = Color.green;
         line.endColor = Color.green;
     }
+    void OnEnable()
+{
+    ResetLine();
+}
+
+void ResetLine()
+{
+    if (line == null) return;
+
+    for (int i = 0; i < points; i++)
+    {
+        line.SetPosition(i, Vector3.zero);
+    }
+
+    line.startColor = Color.green;
+    line.endColor = Color.green;
+}
 
     void Update()
     {

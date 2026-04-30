@@ -6,13 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Prefabs/Scenes/Office.unity
+    guid: fd6688cca7786a74db6c53aec34a50de
+  - enabled: 1
     path: Assets/Prefabs/Scenes/Scene 1.unity
     guid: fff5065c53977c847afc897f10bc85ac
   - enabled: 1
     path: Assets/Prefabs/Scenes/Scene 2.unity
-    guid: 9291f723151c1ea459caf04a43c71c45
+    guid: aacad01345346d5488273ac0e65677b2
   - enabled: 1
     path: Assets/Prefabs/Scenes/Scene 3.unity
-    guid: 94840d7950955594e9e45d3ca85a6f42
+    guid: baadd93db7b91bd4c8404e8550720fc5
+  - enabled: 1
+    path: Assets/Prefabs/Scenes/Scene 4.unity
+    guid: 2ef7925428c860f42ba0302bdecc9b24
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

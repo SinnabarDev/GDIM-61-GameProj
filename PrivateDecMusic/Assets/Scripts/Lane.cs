@@ -81,15 +81,19 @@ public class Lane : MonoBehaviour
 
             double diff = Math.Abs(inputTime - noteTime);
 
-            if (diff <= margin)
+             if (diff <= margin)
             {
                 // HIT
-                Hit();
+                Vector3 hitPos = notes[inputIndex].transform.position;
+
+                Hit(hitPos);
+
                 Destroy(notes[inputIndex].gameObject);
 
                 inputBuffer.Dequeue();
                 inputIndex++;
             }
+
             else if (inputTime < noteTime - margin)
             {
                 // TOO EARLY → discard input
@@ -114,9 +118,9 @@ public class Lane : MonoBehaviour
         }
     }
 
-    private void Hit()
+    private void Hit(Vector3 position)
     {
-        ScoreManager.Hit();
+        ScoreManager.Hit(position);
     }
 
     private void Miss()

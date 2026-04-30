@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelDoor : MonoBehaviour
 {
+    [Header("Button Interaction")]
+    public GameObject interactPromptPrefab;
+    private GameObject currentPrompt;
     public bool unlocked = false;
     public string nextSceneName;
 
@@ -23,19 +26,35 @@ public class LevelDoor : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
     {
-        if (collision.CompareTag("Player"))
-            playerInRange = true;
+        playerInRange = true;
+
+        if (interactPromptPrefab != null && currentPrompt == null)
+        {
+            currentPrompt = Instantiate(interactPromptPrefab, transform);
+            currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
+        }
     }
+}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("ENTERED DOOR TRIGGER");
         if (collision.CompareTag("Player"))
+        {
             playerInRange = false;
+        }
+
+        if (currentPrompt != null)
+        {
+            Destroy(currentPrompt);
+        }
     }
     public void TryUnlock(float accuracyPercent)
 {
-    if (accuracyPercent >= 89f)
+    if (accuracyPercent >= 85f)
     {
         UnlockDoor();
     }

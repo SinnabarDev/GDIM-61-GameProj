@@ -33,7 +33,7 @@ public class SongManager : MonoBehaviour
             return noteTapY - (noteSpawnY - noteTapY);
         }
     }
-    public NPCInteraction npcScript;
+    public MinigameManager miniScript;
 
     public static MidiFile midiFile;
 
@@ -189,7 +189,7 @@ public class SongManager : MonoBehaviour
     yield return new WaitWhile(() => audioSource.isPlaying);
 
     // 3. Audio finished, end minigame
-    npcScript.EndMinigame();
+    miniScript.EndMinigame();
     }
 
     IEnumerator StartCountdown()
