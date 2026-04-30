@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 200264005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -1.15, z: 0}
+  m_LocalPosition: {x: 2, y: -1.02, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -526,7 +526,7 @@ EdgeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3f52bac2f9a3ca0418ad14e7b796d9f1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -553,8 +553,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.1
   m_Points:
-  - {x: -7.9162636, y: 7.7702055}
-  - {x: -5.2297664, y: -1.2693563}
+  - {x: -5.6001277, y: 7.7575383}
+  - {x: -5.559666, y: -1.3317693}
   - {x: 2.1030247, y: -5.186942}
   - {x: 11.649011, y: -2.4459684}
   - {x: 11.699203, y: 8.055717}
@@ -571,7 +571,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1090104404}
-  - component: {fileID: 1090104403}
   - component: {fileID: 1090104402}
   - component: {fileID: 1090104405}
   m_Layer: 0
@@ -596,52 +595,6 @@ MonoBehaviour:
   player: {fileID: 200264005}
   ObjData: {fileID: 11400000, guid: bc547200fac19f84781195db2cff3a48, type: 2}
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
---- !u!61 &1090104403
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090104401}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1090104404
 Transform:
   m_ObjectHideFlags: 0
@@ -952,8 +905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   player: {fileID: 200264007}
-  smoothSpeed: 0.1
-  offset: {x: 0, y: 1, z: 0}
+  camSmooth: 0.125
+  camOffset: {x: 0, y: 1, z: 0}
   leftLimit: -3.35
   rightLimit: 3.34
 --- !u!1 &1525372958

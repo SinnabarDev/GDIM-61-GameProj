@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.Networking;
 using System.Collections;
 using System.IO;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class ObjectInteraction : MonoBehaviour
 {
@@ -15,9 +15,11 @@ public class ObjectInteraction : MonoBehaviour
     private bool playerInRange = false;
     private bool hasStartedDialogue = false;
     private bool hasTalkedBefore = false;
+
     [Header("Button Interaction")]
     public GameObject interactPromptPrefab;
     private GameObject currentPrompt;
+
     void Start()
     {
         StartCoroutine(LoadDialogue());
@@ -25,7 +27,7 @@ public class ObjectInteraction : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E)&&!hasStartedDialogue)
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !hasStartedDialogue)
         {
             hasStartedDialogue = true;
             currentNPC = this;
@@ -33,66 +35,63 @@ public class ObjectInteraction : MonoBehaviour
         }
     }
 
-private IEnumerator LoadDialogue()
-{
-    string path = Path.Combine(Application.streamingAssetsPath, ObjData.dialogueFileName);
-
-    using (UnityWebRequest www = UnityWebRequest.Get(path))
+    private IEnumerator LoadDialogue()
     {
-        yield return www.SendWebRequest();
+        string path = Path.Combine(Application.streamingAssetsPath, ObjData.dialogueFileName);
 
-        if (www.result != UnityWebRequest.Result.Success)
+        using (UnityWebRequest www = UnityWebRequest.Get(path))
         {
-            Debug.LogError("Dialogue load failed: " + www.error);
-            yield break;
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Dialogue load failed: " + www.error);
+                yield break;
+            }
+
+            string json = www.downloadHandler.text;
+
+            dialogueData = JsonUtility.FromJson<DialogueJSON>(json);
+
+            Debug.Log("Loaded dialogue");
+        }
+    }
+
+    public void StartDialogue()
+    {
+        string[] dialogueToUse;
+
+        if (!hasTalkedBefore)
+        {
+            dialogueToUse = dialogueData.firstDialogue;
+            hasTalkedBefore = true;
+        }
+        else
+        {
+            dialogueToUse = dialogueData.repeatDialogue;
         }
 
-        string json = www.downloadHandler.text;
-
-        dialogueData = JsonUtility.FromJson<DialogueJSON>(json);
-
-        Debug.Log("Loaded dialogue");
-
+        DialogueManager.Instance.StartDialogue(dialogueToUse, OnDialogueFinished);
     }
-}
-
-public void StartDialogue()
-{
-    string[] dialogueToUse;
-
-    if (!hasTalkedBefore)
-    {
-        dialogueToUse = dialogueData.firstDialogue;
-        hasTalkedBefore = true;
-    }
-    else
-    {
-        dialogueToUse = dialogueData.repeatDialogue;
-    }
-
-    DialogueManager.Instance.StartDialogue(
-        dialogueToUse,
-        OnDialogueFinished
-    );
-}
 
     public void OnDialogueFinished()
     {
-      ConvEnd();
+        ConvEnd();
     }
 
-public void ConvEnd()
-{
-    player.GetComponent<PlayerMovement>().enabled = true;
-    StartCoroutine(ResetInteractionLock());
-}
-private IEnumerator ResetInteractionLock()
-{
-    yield return new WaitForEndOfFrame();
-    yield return new WaitForSeconds(0.1f);
+    public void ConvEnd()
+    {
+        player.GetComponent<PlayerMovement>().enabled = true;
+        StartCoroutine(ResetInteractionLock());
+    }
 
-    hasStartedDialogue = false;
-}
+    private IEnumerator ResetInteractionLock()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
+
+        hasStartedDialogue = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -100,11 +99,11 @@ private IEnumerator ResetInteractionLock()
         {
             playerInRange = true;
             if (interactPromptPrefab != null && currentPrompt == null)
-        {
-            currentPrompt = Instantiate(interactPromptPrefab, transform);
+            {
+                currentPrompt = Instantiate(interactPromptPrefab, transform);
 
-            currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
-        }
+                currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
+            }
         }
     }
 
@@ -114,10 +113,10 @@ private IEnumerator ResetInteractionLock()
         {
             playerInRange = false;
 
-        if (currentPrompt != null)
-        {
-            Destroy(currentPrompt);
+            if (currentPrompt != null)
+            {
+                Destroy(currentPrompt);
+            }
         }
     }
-}
 }

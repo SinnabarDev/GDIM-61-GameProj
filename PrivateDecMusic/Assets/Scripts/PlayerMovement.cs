@@ -27,9 +27,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
-        
-        animator.SetBool("isWalking", move != 0);
 
+        animator.SetBool("isWalking", move != 0);
 
         // Flip logic
         if (move > 0 && !isFacingRight)
@@ -41,15 +40,16 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
     }
-    void Flip()
-{
-    isFacingRight = !isFacingRight;
 
-    // Multiply the player's x local scale by -1.
-    Vector3 theScale = transform.localScale;
-    theScale.x *= -1;
-    transform.localScale = theScale;
-}
+    void Flip()
+    {
+        isFacingRight = !isFacingRight;
+
+        // Multiply the player's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

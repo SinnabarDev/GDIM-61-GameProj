@@ -26,18 +26,18 @@ public class LevelDoor : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Player"))
     {
-        playerInRange = true;
-
-        if (interactPromptPrefab != null && currentPrompt == null)
+        if (collision.CompareTag("Player"))
         {
-            currentPrompt = Instantiate(interactPromptPrefab, transform);
-            currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
+            playerInRange = true;
+
+            if (interactPromptPrefab != null && currentPrompt == null & unlocked)
+            {
+                currentPrompt = Instantiate(interactPromptPrefab, transform);
+                currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
+            }
         }
     }
-}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -52,11 +52,12 @@ public class LevelDoor : MonoBehaviour
             Destroy(currentPrompt);
         }
     }
+
     public void TryUnlock(float accuracyPercent)
-{
-    if (accuracyPercent >= 85f)
     {
-        UnlockDoor();
+        if (accuracyPercent >= 85f)
+        {
+            UnlockDoor();
+        }
     }
-}
 }

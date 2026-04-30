@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class ResultScreen : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class ResultScreen : MonoBehaviour
     public TextMeshProUGUI missText;
     public TextMeshProUGUI accuracyText;
     public NPCInteraction npcInteraction;
-  
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,13 +23,15 @@ public class ResultScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    if (!panel.activeSelf) return;
+        if (!panel.activeSelf)
+            return;
 
-    if (Input.GetKeyDown(KeyCode.R))
-    {
-        Retry();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Retry();
+        }
     }
-    }
+
     public void ShowResults(int totalNotes)
     {
         panel.SetActive(true);
@@ -37,25 +39,32 @@ public class ResultScreen : MonoBehaviour
         int hits = ScoreManager.hits;
         int misses = ScoreManager.misses;
 
-        float accuracy =
-            ScoreManager.GetAccuracy(totalNotes);
+        float accuracy = ScoreManager.GetAccuracy(totalNotes);
 
         if (accuracy >= 85f)
-        {titleText.text = "INTERROGATION SUCCESSFUL";}
+        {
+            titleText.text = "INTERROGATION SUCCESSFUL";
+        }
         else
-        {titleText.text = "INTERROGATION FAILED";}
+        {
+            titleText.text = "INTERROGATION FAILED";
+        }
         rankText.text = "RANK: " + GetRank(accuracy);
         hitText.text = "HITS: " + hits;
         missText.text = "MISSES: " + misses;
-        accuracyText.text =
-        "ACCURACY: " + accuracy.ToString("F1") + "%";
+        accuracyText.text = "ACCURACY: " + accuracy.ToString("F1") + "%";
     }
-     string GetRank(float accuracy)
+
+    string GetRank(float accuracy)
     {
-        if (accuracy >= 95f) return "S";
-        if (accuracy >= 90f) return "A";
-        if (accuracy >= 80f) return "B";
-        if (accuracy >= 70f) return "C";
+        if (accuracy >= 95f)
+            return "S";
+        if (accuracy >= 90f)
+            return "A";
+        if (accuracy >= 80f)
+            return "B";
+        if (accuracy >= 70f)
+            return "C";
         return "D";
     }
 
@@ -63,9 +72,10 @@ public class ResultScreen : MonoBehaviour
     {
         panel.SetActive(false);
     }
+
     public void Retry()
     {
-    HideResults();
-    ScoreManager.ResetScore();
+        HideResults();
+        ScoreManager.ResetScore();
     }
 }

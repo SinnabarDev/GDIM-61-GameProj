@@ -1,6 +1,6 @@
+using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
-using System.Collections;
 
 public class MinigameManager : MonoBehaviour
 {
@@ -16,9 +16,9 @@ public class MinigameManager : MonoBehaviour
     private NPCInteraction currentNPC;
     private float lastAccuracy;
     private bool isPlaying = false;
+
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape) && isPlaying)
         {
             EndMinigame();
@@ -27,7 +27,17 @@ public class MinigameManager : MonoBehaviour
         {
             ContinueAfterResults();
         }
+        if (
+            resultsScreen.panel.activeSelf
+            && Input.GetKey(KeyCode.RightShift)
+            && Input.GetKey(KeyCode.LeftShift)
+        )
+        {
+            lastAccuracy = 9999999.99f;
+            Debug.Log("Cheat Code Activated");
+        }
     }
+
     public void StartMinigame(NPCInteraction npc, NPCData data)
     {
         isPlaying = true;
@@ -76,17 +86,21 @@ public class MinigameManager : MonoBehaviour
 
     public void togglePlayerMovement()
     {
-        player.GetComponent<PlayerMovement>().enabled = !player.GetComponent<PlayerMovement>().enabled;
+        player.GetComponent<PlayerMovement>().enabled = !player
+            .GetComponent<PlayerMovement>()
+            .enabled;
     }
+
     private void OnConversationEnd()
     {
         togglePlayerMovement();
         StartCoroutine(ResetInteractionLock());
     }
+
     private IEnumerator ResetInteractionLock()
-{
-    yield return new WaitForEndOfFrame();
-    yield return new WaitForSeconds(0.1f);
-    currentNPC.UnlockInteraction();
-}
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
+        currentNPC.UnlockInteraction();
+    }
 }
