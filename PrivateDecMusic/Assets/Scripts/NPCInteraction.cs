@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.Networking;
 using System.Collections;
 using System.IO;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class NPCInteraction : MonoBehaviour
 {
@@ -21,7 +21,8 @@ public class NPCInteraction : MonoBehaviour
     private bool hasTalkedBefore = false;
     public GameObject player;
 
-    [SerializeField] private MinigameManager minigameManager;
+    [SerializeField]
+    private MinigameManager minigameManager;
 
     void Start()
     {
@@ -68,21 +69,23 @@ public class NPCInteraction : MonoBehaviour
         DialogueManager.Instance.StartDialogue(dialogueToUse, OnDialogueFinished);
         hasTalkedBefore = true;
     }
+
     public void UnlockInteraction()
     {
         hasStartedDialogue = false;
     }
-    public void StartHintDialogue(System.Action onComplete)
-{
-    if (dialogueData == null)
-    {
-        Debug.LogError("Dialogue not loaded");
-        onComplete?.Invoke();
-        return;
-    }
 
-    DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, onComplete);
-}
+    public void StartHintDialogue(System.Action onComplete)
+    {
+        if (dialogueData == null)
+        {
+            Debug.LogError("Dialogue not loaded");
+            onComplete?.Invoke();
+            return;
+        }
+
+        DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, onComplete);
+    }
 
     private void OnDialogueFinished()
     {
@@ -111,7 +114,8 @@ public class NPCInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Player"))
+            return;
 
         playerInRange = true;
         EnablePrompt();
@@ -119,7 +123,8 @@ public class NPCInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
+        if (!collision.CompareTag("Player"))
+            return;
 
         playerInRange = false;
         DisablePrompt();

@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.IO;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
-using System.IO;
-using UnityEngine.Networking;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class SongManager : MonoBehaviour
 {
@@ -28,46 +28,43 @@ public class SongManager : MonoBehaviour
     public float noteTapY;
     public float noteDespawnY
     {
-        get
-        {
-            return noteTapY - (noteSpawnY - noteTapY);
-        }
+        get { return noteTapY - (noteSpawnY - noteTapY); }
     }
     public MinigameManager miniScript;
 
     public static MidiFile midiFile;
 
     [Header("Countdown")]
-    [SerializeField] private TextMeshProUGUI countdownText;
-    [SerializeField] private int countdownStart = 3;
+    [SerializeField]
+    private TextMeshProUGUI countdownText;
+
+    [SerializeField]
+    private int countdownStart = 3;
 
     void Awake()
     {
         Instance = this;
 
-    if (audioSource != null)
-    {
-        audioSource.playOnAwake = false;
-        audioSource.Stop();
-    }
+        if (audioSource != null)
+        {
+            audioSource.playOnAwake = false;
+            audioSource.Stop();
+        }
     }
 
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     // -----------------------------
     // PUBLIC API (USED BY NPCs)
     // -----------------------------
 
     public void LoadSong(AudioClip clip, string midiFileName)
-{
-    audioSource.clip = clip;
-    this.midiFileName = midiFileName;
+    {
+        audioSource.clip = clip;
+        this.midiFileName = midiFileName;
 
-    ReadMidi();
-}
+        ReadMidi();
+    }
 
     public void StartSong()
     {
@@ -82,25 +79,27 @@ public class SongManager : MonoBehaviour
     // -----------------------------
 
     private void ReadMidi()
-{
-    if (string.IsNullOrEmpty(midiFileName))
     {
-        Debug.LogError("No MIDI file assigned!");
-        return;
-    }
+        if (string.IsNullOrEmpty(midiFileName))
+        {
+            Debug.LogError("No MIDI file assigned!");
+            return;
+        }
 
-    string path = Path.Combine(Application.streamingAssetsPath, midiFileName);
+        string path = Path.Combine(Application.streamingAssetsPath, midiFileName);
 
-    if (Application.streamingAssetsPath.StartsWith("http://") ||
-        Application.streamingAssetsPath.StartsWith("https://"))
-    {
-        StartCoroutine(ReadFromWebsite(path));
+        if (
+            Application.streamingAssetsPath.StartsWith("http://")
+            || Application.streamingAssetsPath.StartsWith("https://")
+        )
+        {
+            StartCoroutine(ReadFromWebsite(path));
+        }
+        else
+        {
+            ReadFromFile(path);
+        }
     }
-    else
-    {
-        ReadFromFile(path);
-    }
-}
 
     private IEnumerator ReadFromWebsite(string path)
     {
@@ -148,17 +147,18 @@ public class SongManager : MonoBehaviour
 
         StartCoroutine(StartCountdown());
     }
+
     public int GetTotalNotes()
-{
-    int total = 0;
-
-    foreach (var lane in lanes)
     {
-        total += lane.timeStamps.Count;
-    }
+        int total = 0;
 
-    return total;
-}
+        foreach (var lane in lanes)
+        {
+            total += lane.timeStamps.Count;
+        }
+
+        return total;
+    }
 
     // -----------------------------
     // TIME HELPERS
@@ -166,9 +166,9 @@ public class SongManager : MonoBehaviour
 
     public static double GetAudioSourceTime()
     {
-        return (double)Instance.audioSource.timeSamples /
-               Instance.audioSource.clip.frequency;
+        return (double)Instance.audioSource.timeSamples / Instance.audioSource.clip.frequency;
     }
+
     public void EndSong()
     {
         isGameActive = false;
@@ -180,41 +180,44 @@ public class SongManager : MonoBehaviour
             lane.ResetLane();
         }
     }
+
     IEnumerator WaitForMusicEnd()
     {
-    // 1. Wait a frame to ensure AudioSource.Play() has registered
-    yield return null; 
+        // 1. Wait a frame to ensure AudioSource.Play() has registered
+        yield return null;
 
-    // 2. Wait while it is playing
-    yield return new WaitWhile(() => audioSource.isPlaying);
+        // 2. Wait while it is playing
+        yield return new WaitWhile(() => audioSource.isPlaying);
 
-    // 3. Audio finished, end minigame
-    miniScript.EndMinigame();
+        // 3. Audio finished, end minigame
+        miniScript.EndMinigame();
     }
 
     IEnumerator StartCountdown()
-{
-    isGameActive = false;
-
-    countdownText.gameObject.SetActive(true);
-
-    for (int i = countdownStart; i > 0; i--)
     {
-        countdownText.text = i.ToString();
-        yield return new WaitForSeconds(1f);
+        isGameActive = false;
+
+        countdownText.gameObject.SetActive(true);
+
+        for (int i = countdownStart; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(0.5f);
+
+        countdownText.gameObject.SetActive(false);
+
+        StartSong();
     }
 
-    countdownText.text = "GO!";
-    yield return new WaitForSeconds(0.5f);
+    public float GetSongProgress()
+    {
+        if (audioSource.clip == null)
+            return 0f;
 
-    countdownText.gameObject.SetActive(false);
-
-    StartSong();
-}
-public float GetSongProgress()
-{
-    if (audioSource.clip == null) return 0f;
-
-    return audioSource.time / audioSource.clip.length;
-}
+        return audioSource.time / audioSource.clip.length;
+    }
 }

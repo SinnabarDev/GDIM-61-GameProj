@@ -1,6 +1,6 @@
-﻿using Melanchall.DryWetMidi.Interaction;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Melanchall.DryWetMidi.Interaction;
 using UnityEngine;
 
 public class Lane : MonoBehaviour
@@ -31,9 +31,9 @@ public class Lane : MonoBehaviour
                 );
 
                 double time =
-                    metricTimeSpan.Minutes * 60f +
-                    metricTimeSpan.Seconds +
-                    metricTimeSpan.Milliseconds / 1000.0;
+                    metricTimeSpan.Minutes * 60f
+                    + metricTimeSpan.Seconds
+                    + metricTimeSpan.Milliseconds / 1000.0;
 
                 timeStamps.Add(time);
             }
@@ -43,17 +43,20 @@ public class Lane : MonoBehaviour
     void Update()
     {
         if (!SongManager.Instance || !SongManager.Instance.isGameActive)
-        return;
-        double audioTime = SongManager.GetAudioSourceTime() -
-            (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
+            return;
+        double audioTime =
+            SongManager.GetAudioSourceTime()
+            - (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
 
         double margin = SongManager.Instance.marginOfError;
 
         // -----------------------------
         // SPAWN NOTES
         // -----------------------------
-        while(spawnIndex < timeStamps.Count &&
-               audioTime >= timeStamps[spawnIndex] - SongManager.Instance.noteTime)
+        while (
+            spawnIndex < timeStamps.Count
+            && audioTime >= timeStamps[spawnIndex] - SongManager.Instance.noteTime
+        )
         {
             var noteObj = Instantiate(notePrefab, transform);
             var note = noteObj.GetComponent<Note>();
@@ -81,7 +84,7 @@ public class Lane : MonoBehaviour
 
             double diff = Math.Abs(inputTime - noteTime);
 
-             if (diff <= margin)
+            if (diff <= margin)
             {
                 // HIT
                 Vector3 hitPos = notes[inputIndex].transform.position;
@@ -93,7 +96,6 @@ public class Lane : MonoBehaviour
                 inputBuffer.Dequeue();
                 inputIndex++;
             }
-
             else if (inputTime < noteTime - margin)
             {
                 // TOO EARLY → discard input
@@ -110,8 +112,7 @@ public class Lane : MonoBehaviour
         // -----------------------------
         // MISS HANDLING (no input)
         // -----------------------------
-        while (inputIndex < timeStamps.Count &&
-               audioTime > timeStamps[inputIndex] + margin)
+        while (inputIndex < timeStamps.Count && audioTime > timeStamps[inputIndex] + margin)
         {
             Miss();
             inputIndex++;
@@ -127,21 +128,22 @@ public class Lane : MonoBehaviour
     {
         ScoreManager.Miss();
     }
+
     public void ResetLane()
-{
-    // 1. Destroy spawned notes
-    foreach (Transform child in transform)
     {
-        Destroy(child.gameObject);
+        // 1. Destroy spawned notes
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 2. Clear runtime state
+        notes.Clear();
+        timeStamps.Clear();
+        inputBuffer.Clear();
+
+        // 3. Reset indexes (CRITICAL)
+        spawnIndex = 0;
+        inputIndex = 0;
     }
-
-    // 2. Clear runtime state
-    notes.Clear();
-    timeStamps.Clear();
-    inputBuffer.Clear();
-
-    // 3. Reset indexes (CRITICAL)
-    spawnIndex = 0;
-    inputIndex = 0;
-}
 }

@@ -36,52 +36,50 @@ public class PolygraphUI : MonoBehaviour
         line.startColor = Color.green;
         line.endColor = Color.green;
     }
+
     void OnEnable()
-{
-    ResetLine();
-}
-
-void ResetLine()
-{
-    if (line == null) return;
-
-    for (int i = 0; i < points; i++)
     {
-        line.SetPosition(i, Vector3.zero);
+        ResetLine();
     }
 
-    line.startColor = Color.green;
-    line.endColor = Color.green;
-}
+    void ResetLine()
+    {
+        if (line == null)
+            return;
+
+        for (int i = 0; i < points; i++)
+        {
+            line.SetPosition(i, Vector3.zero);
+        }
+
+        line.startColor = Color.green;
+        line.endColor = Color.green;
+    }
 
     void Update()
     {
         float accuracy = ScoreManager.GetLiveAccuracy();
         float progress = SongManager.Instance.GetSongProgress();
 
-        float amplitude =
-            Mathf.Lerp(minAmplitude, maxAmplitude, accuracy);
+        float amplitude = Mathf.Lerp(minAmplitude, maxAmplitude, accuracy);
 
-        float speed =
-            Mathf.Lerp(minSpeed, maxSpeed, progress);
+        float speed = Mathf.Lerp(minSpeed, maxSpeed, progress);
 
         for (int i = 0; i < points; i++)
-{
-    float spacing = maxWidth / (points - 1);
-    float x = i * spacing;
+        {
+            float spacing = maxWidth / (points - 1);
+            float x = i * spacing;
 
-    float y =
-        Mathf.Sin((x * frequency) + Time.time * speed)
-        * amplitude;
+            float y = Mathf.Sin((x * frequency) + Time.time * speed) * amplitude;
 
-    line.SetPosition(i, new Vector3(x, y, 0));
-}
-if (amplitude>0.5f)
+            line.SetPosition(i, new Vector3(x, y, 0));
+        }
+        if (amplitude > 0.5f)
         {
             line.startColor = Color.orange;
             line.endColor = Color.red;
         }
-        else if (amplitude>1.0f)
+        else if (amplitude > 1.0f)
         {
             line.startColor = Color.red;
             line.endColor = Color.red;

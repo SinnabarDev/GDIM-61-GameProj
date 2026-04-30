@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -7,12 +7,12 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
+
     //public TMP_Text nameText;
 
     private string[] lines;
     private int index;
     private System.Action onComplete;
-
 
     void Awake()
     {
@@ -47,9 +47,9 @@ public class DialogueManager : MonoBehaviour
     void NextLine()
     {
         Debug.Log($"INDEX: {index}");
-    Debug.Log($"LINES NULL? {lines == null}");
-    Debug.Log($"LINES LENGTH: {(lines != null ? lines.Length : -1)}");
-    Debug.Log($"TEXT REF: {dialogueText}");
+        Debug.Log($"LINES NULL? {lines == null}");
+        Debug.Log($"LINES LENGTH: {(lines != null ? lines.Length : -1)}");
+        Debug.Log($"TEXT REF: {dialogueText}");
         index++;
 
         if (index >= lines.Length)
