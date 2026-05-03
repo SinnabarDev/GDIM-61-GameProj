@@ -2998,7 +2998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ba36ed3655590469cf3a3c91ad8545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  npcData: {fileID: 11400000, guid: ef239ac5c85b51a4f8697a8d2f9b9b70, type: 2}
+  npcData: {fileID: 11400000, guid: 75ba7823d18f43e489882bf9e131c769, type: 2}
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
   anim: {fileID: 1150576308}
   playerInRange: 0
@@ -3433,8 +3433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   player: {fileID: 200264007}
-  smoothSpeed: 0.1
-  offset: {x: 0, y: 1, z: 0}
+  camSmooth: 0.125
+  camOffset: {x: 0, y: 0, z: 0}
   leftLimit: -3.34
   rightLimit: 1
 --- !u!1 &1525372958
