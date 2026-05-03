@@ -14,6 +14,9 @@ public class ResultScreen : MonoBehaviour
     public TextMeshProUGUI accuracyText;
     public NPCInteraction npcInteraction;
 
+    [SerializeField]
+    private MinigameManager minigameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,6 +79,6 @@ public class ResultScreen : MonoBehaviour
     public void Retry()
     {
         HideResults();
-        ScoreManager.ResetScore();
+        npcInteraction.OnDialogueFinished();
     }
 }
