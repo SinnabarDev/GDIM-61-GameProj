@@ -3987,8 +3987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda8629c3ddb714498571482eeac3dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameManager
-  rhythmGameUI: {fileID: 0}
-  polygraph: {fileID: 0}
+  rhythmGameUI: {fileID: 79658091}
+  polygraph: {fileID: 572140484}
   resultsScreen: {fileID: 1105540723}
   door: {fileID: 177456569}
   player: {fileID: 200264005}
