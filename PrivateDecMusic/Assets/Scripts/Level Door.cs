@@ -15,7 +15,7 @@ public class LevelDoor : MonoBehaviour
     {
         if (playerInRange && unlocked && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene(nextSceneName);
+            SceneManager.LoadScene(nextSceneName); //loads next scene when player interacts with door
         }
     }
 
@@ -33,7 +33,7 @@ public class LevelDoor : MonoBehaviour
 
             if (interactPromptPrefab != null && currentPrompt == null & unlocked)
             {
-                currentPrompt = Instantiate(interactPromptPrefab, transform);
+                currentPrompt = Instantiate(interactPromptPrefab, transform); //create prompt prefab as child of door
                 currentPrompt.transform.localPosition = new Vector3(0, 5f, 0); // above NPC
             }
         }
@@ -41,7 +41,6 @@ public class LevelDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("ENTERED DOOR TRIGGER");
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
@@ -49,11 +48,11 @@ public class LevelDoor : MonoBehaviour
 
         if (currentPrompt != null)
         {
-            Destroy(currentPrompt);
+            Destroy(currentPrompt); //remove prompt when player leaves range
         }
     }
 
-    public void TryUnlock(float accuracyPercent)
+    public void TryUnlock(float accuracyPercent) //attempt to unlock door based on minigame performance
     {
         if (accuracyPercent >= 85f)
         {
