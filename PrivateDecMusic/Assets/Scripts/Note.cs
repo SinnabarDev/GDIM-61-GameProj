@@ -20,7 +20,7 @@ public class Note : MonoBehaviour
 
         if (t > 1)
         {
-            Destroy(gameObject); //destroy after despawn visual point
+            Destroy(gameObject);
         }
         else
         {

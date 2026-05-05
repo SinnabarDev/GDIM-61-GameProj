@@ -2,7 +2,7 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 
-public class MinigameManager : MonoBehaviour //forked singleton from old NPC script
+public class MinigameManager : MonoBehaviour
 {
     [Header("UI / Systems")]
     public GameObject rhythmGameUI;
@@ -19,18 +19,18 @@ public class MinigameManager : MonoBehaviour //forked singleton from old NPC scr
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && isPlaying) //force quit minigame for testing purposes
+        if (Input.GetKeyDown(KeyCode.Escape) && isPlaying)
         {
             EndMinigame();
         }
-        if (resultsScreen.panel.activeSelf && Input.GetKeyDown(KeyCode.E)) //continue after results input
+        if (resultsScreen.panel.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
             ContinueAfterResults();
         }
         if (
             resultsScreen.panel.activeSelf
             && Input.GetKey(KeyCode.RightShift)
-            && Input.GetKey(KeyCode.LeftShift) //cheat code to guarantee passing the minigame for testing purposes
+            && Input.GetKey(KeyCode.LeftShift)
         )
         {
             lastAccuracy = 9999999.99f;
@@ -44,11 +44,11 @@ public class MinigameManager : MonoBehaviour //forked singleton from old NPC scr
         currentNPC = npc;
         currentNPCData = data;
 
-        rhythmGameUI.SetActive(true); //enable rhythm game UI
+        rhythmGameUI.SetActive(true);
         polygraph.SetActive(true);
 
-        ScoreManager.ResetScore(); //reset score for new game
-        SongManager.Instance.LoadSong(data.song, data.midiFileName); //load the song and midi file for the minigame
+        ScoreManager.ResetScore();
+        SongManager.Instance.LoadSong(data.song, data.midiFileName);
     }
 
     public void EndMinigame()
@@ -56,11 +56,11 @@ public class MinigameManager : MonoBehaviour //forked singleton from old NPC scr
         isPlaying = false;
         rhythmGameUI.SetActive(false);
         polygraph.SetActive(false);
-        int totalNotes = SongManager.Instance.GetTotalNotes(); //calculate accuracy based on total notes and score
+        int totalNotes = SongManager.Instance.GetTotalNotes();
         float accuracy = ScoreManager.GetAccuracy(totalNotes);
 
         lastAccuracy = accuracy;
-        SongManager.Instance.EndSong(); //stop the song and clean up
+        SongManager.Instance.EndSong();
         resultsScreen.ShowResults(totalNotes);
     }
 
@@ -68,17 +68,17 @@ public class MinigameManager : MonoBehaviour //forked singleton from old NPC scr
     {
         Debug.Log(lastAccuracy);
 
-        door.TryUnlock(lastAccuracy); //try to unlock the door based on accuracy
+        door.TryUnlock(lastAccuracy);
 
         if (lastAccuracy > 85f)
         {
-            currentNPC.anim.SetBool("isHypno", false); //update NPC animation based on performance
+            currentNPC.anim.SetBool("isHypno", false);
 
             currentNPC.StartHintDialogue(OnConversationEnd);
         }
         else
         {
-            OnConversationEnd(); //if failed, just end the conversation and let the player try again
+            OnConversationEnd();
         }
 
         resultsScreen.HideResults();
@@ -94,7 +94,7 @@ public class MinigameManager : MonoBehaviour //forked singleton from old NPC scr
     private void OnConversationEnd()
     {
         togglePlayerMovement();
-        StartCoroutine(ResetInteractionLock()); //unlock NPC interaction after conversation ends brief delay
+        StartCoroutine(ResetInteractionLock());
     }
 
     private IEnumerator ResetInteractionLock()

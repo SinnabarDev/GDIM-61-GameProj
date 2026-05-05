@@ -20,10 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float move = Input.GetAxisRaw("Horizontal"); //left and right movement
+        float move = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) //jump logic
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }

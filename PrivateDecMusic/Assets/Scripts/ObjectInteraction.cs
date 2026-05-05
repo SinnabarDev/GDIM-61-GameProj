@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ObjectInteraction : MonoBehaviour //similar to NPC interaction but for objects that can be interacted with, like signs or doors
+public class ObjectInteraction : MonoBehaviour
 {
     public static ObjectInteraction currentNPC;
     public GameObject player;

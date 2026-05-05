@@ -4,8 +4,11 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
+
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
+
+    //public TMP_Text nameText;
 
     private string[] lines;
     private int index;
@@ -19,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(string[] dialogueLines, System.Action onFinish)
     {
         dialoguePanel.SetActive(true);
+        //nameText.text = npcName;
 
         lines = dialogueLines;
         index = 0;
@@ -27,7 +31,7 @@ public class DialogueManager : MonoBehaviour
         ShowLine();
     }
 
-    void Update() // Listen for input to advance dialogue line
+    void Update()
     {
         if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
@@ -35,13 +39,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void ShowLine() // Line by line reading
+    void ShowLine()
     {
         dialogueText.text = lines[index];
     }
 
     void NextLine()
     {
+        Debug.Log($"INDEX: {index}");
+        Debug.Log($"LINES NULL? {lines == null}");
+        Debug.Log($"LINES LENGTH: {(lines != null ? lines.Length : -1)}");
+        Debug.Log($"TEXT REF: {dialogueText}");
         index++;
 
         if (index >= lines.Length)
