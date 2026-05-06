@@ -2030,7 +2030,7 @@ MonoBehaviour:
   noteSpawnY: 6
   noteTapY: -2.5
   miniScript: {fileID: 2038856205}
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 1112460206}
   countdownStart: 3
 --- !u!82 &984627005
 AudioSource:
