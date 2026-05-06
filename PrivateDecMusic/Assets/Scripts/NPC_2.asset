@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NPC_2
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
   dialogueFileName: npc2dialouge.json
-  song: {fileID: 8300000, guid: fd1d6af2b3d29d343a349bfaa99e145d, type: 3}
-  midiFileName: detectiveChart1.mid
+  song: {fileID: 8300000, guid: 74b23ab9a4cb08344aabbd3ce5fac7b9, type: 3}
+  midiFileName: encounter2Chart.mid

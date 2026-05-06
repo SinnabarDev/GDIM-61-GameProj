@@ -87,7 +87,7 @@ public class NPCInteraction : MonoBehaviour
         DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, onComplete);
     }
 
-    private void OnDialogueFinished()
+    public void OnDialogueFinished()
     {
         if (minigameManager != null)
         {
