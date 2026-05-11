@@ -3255,7 +3255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   player: {fileID: 200264007}
   camSmooth: 0.125
-  camOffset: {x: 0, y: 0, z: 0}
+  camOffset: {x: 0, y: 1, z: 0}
   leftLimit: -3.34
   rightLimit: 3.34
 --- !u!1 &1504604048
