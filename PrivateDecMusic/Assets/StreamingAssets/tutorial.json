@@ -1,0 +1,16 @@
+{
+  "firstDialogue": [
+    "Welcome to the tutorial! Let's get you started with the basics.",
+    "In this game, you'll be exploring a world filled with music and mysteries.",
+    "Use the WASD keys to move around and the E key to interact with objects.", 
+    "Investigate the scene and find the truth to progress through the story.",
+    "Citizens of this world are being hypnotized by a mysterious force. Your mission is to uncover the source of this phenomenon and save the city.",
+    "Lucky you are proficient in music, and will be the key to interrogating the citizens and uncovering the truth.",
+    "Use your skills with the arrow keys to undaze citizens and gather information. Pay attention to their responses, as they may hold clues to the mystery.",
+    "Good luck, and remember to have fun exploring the world and uncovering its secrets!"
+  ],
+  "repeatDialogue": ["Use the WASD keys to move around and the E key to interact with objects.", "Use your skills with the arrow keys to undaze citizens and gather information. Pay attention to their responses, as they may hold clues to the mystery."],
+  "hintDialogue": [
+    ""
+  ]
+}
