@@ -648,11 +648,11 @@ Transform:
   m_GameObject: {fileID: 275129761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 210, y: 0, z: 450.05878}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1493346377}
+  m_Father: {fileID: 1966509636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &275129763
 MonoBehaviour:
@@ -1279,11 +1279,11 @@ Transform:
   m_GameObject: {fileID: 619980463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -70, y: 0, z: 450.05878}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1493346377}
+  m_Father: {fileID: 1966509636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &619980465
 MonoBehaviour:
@@ -2100,7 +2100,7 @@ MonoBehaviour:
   noteSpawnY: 6
   noteTapY: -2.5
   miniScript: {fileID: 2038856205}
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 908428319}
   countdownStart: 3
 --- !u!82 &984627005
 AudioSource:
@@ -2893,11 +2893,11 @@ Transform:
   m_GameObject: {fileID: 1373760336}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 70, y: 0, z: 450.05878}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1493346377}
+  m_Father: {fileID: 1966509636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1373760338
 MonoBehaviour:
@@ -3210,11 +3210,7 @@ Transform:
   m_LocalPosition: {x: -2.72, y: 3.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1915487196}
-  - {fileID: 619980464}
-  - {fileID: 1373760337}
-  - {fileID: 275129762}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1493346378
@@ -3827,11 +3823,11 @@ Transform:
   m_GameObject: {fileID: 1915487195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -210, y: 0, z: 450.05878}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1493346377}
+  m_Father: {fileID: 1966509636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1915487197
 MonoBehaviour:
@@ -3948,6 +3944,10 @@ RectTransform:
   - {fileID: 1822837262}
   - {fileID: 908428318}
   - {fileID: 2088093306}
+  - {fileID: 1915487196}
+  - {fileID: 619980464}
+  - {fileID: 1373760337}
+  - {fileID: 275129762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3984,7 +3984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda8629c3ddb714498571482eeac3dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameManager
-  rhythmGameUI: {fileID: 0}
+  rhythmGameUI: {fileID: 1966509632}
   resultsScreen: {fileID: 1105540723}
   door: {fileID: 177456569}
   player: {fileID: 200264005}
@@ -4137,7 +4137,7 @@ RectTransform:
   m_GameObject: {fileID: 2088093305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1584518696}
