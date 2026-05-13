@@ -8,7 +8,7 @@ public class Lane : MonoBehaviour
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public KeyCode input;
     public GameObject notePrefab;
-
+    public GameObject missText;
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
 
@@ -127,6 +127,8 @@ public class Lane : MonoBehaviour
     private void Miss()
     {
         ScoreManager.Miss();
+
+        StartCoroutine(ShowMissText());
     }
 
     public void ResetLane()
@@ -145,5 +147,17 @@ public class Lane : MonoBehaviour
         // 3. Reset indexes (CRITICAL)
         spawnIndex = 0;
         inputIndex = 0;
+    }
+
+    private System.Collections.IEnumerator ShowMissText()
+    {
+        if (missText == null)
+            yield break;
+
+        missText.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        missText.SetActive(false);
     }
 }
