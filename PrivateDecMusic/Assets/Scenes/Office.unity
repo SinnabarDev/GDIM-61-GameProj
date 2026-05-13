@@ -363,6 +363,7 @@ MonoBehaviour:
   noteRestriction: 11
   input: 275
   notePrefab: {fileID: 1534850418514208906, guid: 9043eb2d71628404d9dfdc92d43fc48c, type: 3}
+  missText: {fileID: 0}
   timeStamps: []
 --- !u!1 &333093618
 GameObject:
@@ -483,6 +484,7 @@ MonoBehaviour:
   noteRestriction: 7
   input: 274
   notePrefab: {fileID: 6401272534080061571, guid: a043c4f729c0ef1429ea13081611a298, type: 3}
+  missText: {fileID: 0}
   timeStamps: []
 --- !u!1 &894581704
 GameObject:
@@ -749,6 +751,7 @@ MonoBehaviour:
   noteRestriction: 9
   input: 273
   notePrefab: {fileID: 4003208864679534659, guid: b93f007ca30546343b6fb9f22a218a42, type: 3}
+  missText: {fileID: 0}
   timeStamps: []
 --- !u!1 &1493346374
 GameObject:
@@ -838,7 +841,7 @@ Transform:
   m_GameObject: {fileID: 1493346374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.12, z: -10}
+  m_LocalPosition: {x: -3.19, y: 3.12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1443,6 +1446,7 @@ MonoBehaviour:
   noteRestriction: 5
   input: 276
   notePrefab: {fileID: 1679635116095923819, guid: cc28a87238983584da68d44f3dd25845, type: 3}
+  missText: {fileID: 0}
   timeStamps: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
