@@ -808,6 +808,9 @@ MonoBehaviour:
   noteRestriction: 11
   input: 275
   notePrefab: {fileID: 1534850418514208906, guid: 9043eb2d71628404d9dfdc92d43fc48c, type: 3}
+  arrowSprite: {fileID: 115799108}
+  throbScale: 1.25
+  throbDuration: 0.08
   missText: {fileID: 1697533153}
   timeStamps: []
 --- !u!1 &315159214
@@ -1365,6 +1368,9 @@ MonoBehaviour:
   noteRestriction: 7
   input: 274
   notePrefab: {fileID: 6401272534080061571, guid: a043c4f729c0ef1429ea13081611a298, type: 3}
+  arrowSprite: {fileID: 1599463899}
+  throbScale: 1.25
+  throbDuration: 0.08
   missText: {fileID: 1856001185}
   timeStamps: []
 --- !u!1 &640655680
@@ -3204,6 +3210,9 @@ MonoBehaviour:
   noteRestriction: 9
   input: 273
   notePrefab: {fileID: 4003208864679534659, guid: b93f007ca30546343b6fb9f22a218a42, type: 3}
+  arrowSprite: {fileID: 2038322732}
+  throbScale: 1.25
+  throbDuration: 0.08
   missText: {fileID: 596871816}
   timeStamps: []
 --- !u!1 &1454947490
@@ -4458,6 +4467,9 @@ MonoBehaviour:
   noteRestriction: 5
   input: 276
   notePrefab: {fileID: 1679635116095923819, guid: cc28a87238983584da68d44f3dd25845, type: 3}
+  arrowSprite: {fileID: 1810442819}
+  throbScale: 1.25
+  throbDuration: 0.08
   missText: {fileID: 1622009714}
   timeStamps: []
 --- !u!1 &2038322731

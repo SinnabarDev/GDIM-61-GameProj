@@ -7,8 +7,18 @@ public class Lane : MonoBehaviour
 {
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public KeyCode input;
+
     public GameObject notePrefab;
     public GameObject missText;
+
+    [Header("Arrow Feedback")]
+    public Transform arrowSprite;
+    public float throbScale = 1.25f;
+    public float throbDuration = 0.08f;
+
+    private Vector3 originalScale;
+    private Coroutine throbRoutine;
+
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
 
@@ -16,6 +26,48 @@ public class Lane : MonoBehaviour
 
     int spawnIndex = 0;
     int inputIndex = 0;
+
+    void Start()
+    {
+        input = LoadKey();
+
+        if (arrowSprite != null)
+            originalScale = arrowSprite.localScale;
+    }
+
+    KeyCode LoadKey()
+    {
+        string keyString = PlayerPrefs.GetString("LaneKey_" + GetLaneIndex(), input.ToString());
+
+        // 🔴 SAFE PARSE (prevents crashes)
+        if (Enum.TryParse(keyString, out KeyCode result))
+        {
+            return result;
+        }
+
+        // fallback if corrupted
+        return input;
+    }
+
+    int GetLaneIndex()
+    {
+        switch (noteRestriction)
+        {
+            case Melanchall.DryWetMidi.MusicTheory.NoteName.F:
+                return 0; // Left
+
+            case Melanchall.DryWetMidi.MusicTheory.NoteName.G:
+                return 1; // Down
+
+            case Melanchall.DryWetMidi.MusicTheory.NoteName.A:
+                return 2; // Up
+
+            case Melanchall.DryWetMidi.MusicTheory.NoteName.B:
+                return 3; // Right
+        }
+
+        return 0;
+    }
 
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
     {
@@ -44,15 +96,13 @@ public class Lane : MonoBehaviour
     {
         if (!SongManager.Instance || !SongManager.Instance.isGameActive)
             return;
+
         double audioTime =
             SongManager.GetAudioSourceTime()
             - (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
 
         double margin = SongManager.Instance.marginOfError;
 
-        // -----------------------------
-        // SPAWN NOTES
-        // -----------------------------
         while (
             spawnIndex < timeStamps.Count
             && audioTime >= timeStamps[spawnIndex] - SongManager.Instance.noteTime
@@ -66,17 +116,13 @@ public class Lane : MonoBehaviour
 
             spawnIndex++;
         }
-        // -----------------------------
-        // INPUT BUFFER (FIX)
-        // -----------------------------
+
         if (Input.GetKeyDown(input))
         {
             inputBuffer.Enqueue(audioTime);
+            ThrobArrow();
         }
 
-        // -----------------------------
-        // PROCESS INPUTS
-        // -----------------------------
         while (inputBuffer.Count > 0 && inputIndex < timeStamps.Count)
         {
             double inputTime = inputBuffer.Peek();
@@ -86,7 +132,6 @@ public class Lane : MonoBehaviour
 
             if (diff <= margin)
             {
-                // HIT
                 Vector3 hitPos = notes[inputIndex].transform.position;
 
                 Hit(hitPos);
@@ -98,20 +143,15 @@ public class Lane : MonoBehaviour
             }
             else if (inputTime < noteTime - margin)
             {
-                // TOO EARLY → discard input
                 inputBuffer.Dequeue();
             }
             else
             {
-                // TOO LATE → miss note
                 Miss();
                 inputIndex++;
             }
         }
 
-        // -----------------------------
-        // MISS HANDLING (no input)
-        // -----------------------------
         while (inputIndex < timeStamps.Count && audioTime > timeStamps[inputIndex] + margin)
         {
             Miss();
@@ -127,24 +167,18 @@ public class Lane : MonoBehaviour
     private void Miss()
     {
         ScoreManager.Miss();
-
         StartCoroutine(ShowMissText());
     }
 
     public void ResetLane()
     {
-        // 1. Destroy spawned notes
         foreach (Transform child in transform)
-        {
             Destroy(child.gameObject);
-        }
 
-        // 2. Clear runtime state
         notes.Clear();
         timeStamps.Clear();
         inputBuffer.Clear();
 
-        // 3. Reset indexes (CRITICAL)
         spawnIndex = 0;
         inputIndex = 0;
     }
@@ -155,9 +189,25 @@ public class Lane : MonoBehaviour
             yield break;
 
         missText.SetActive(true);
-
         yield return new WaitForSeconds(1f);
-
         missText.SetActive(false);
+    }
+
+    private void ThrobArrow()
+    {
+        if (arrowSprite == null)
+            return;
+
+        if (throbRoutine != null)
+            StopCoroutine(throbRoutine);
+
+        throbRoutine = StartCoroutine(DoThrob());
+    }
+
+    private System.Collections.IEnumerator DoThrob()
+    {
+        arrowSprite.localScale = originalScale * throbScale;
+        yield return new WaitForSeconds(throbDuration);
+        arrowSprite.localScale = originalScale;
     }
 }
