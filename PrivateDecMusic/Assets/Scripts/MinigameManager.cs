@@ -6,7 +6,6 @@ public class MinigameManager : MonoBehaviour
 {
     [Header("UI / Systems")]
     public GameObject rhythmGameUI;
-    public GameObject polygraph;
     public ResultScreen resultsScreen;
     public LevelDoor door;
 
@@ -45,7 +44,6 @@ public class MinigameManager : MonoBehaviour
         currentNPCData = data;
 
         rhythmGameUI.SetActive(true);
-        polygraph.SetActive(true);
 
         ScoreManager.ResetScore();
         SongManager.Instance.LoadSong(data.song, data.midiFileName);
@@ -55,7 +53,6 @@ public class MinigameManager : MonoBehaviour
     {
         isPlaying = false;
         rhythmGameUI.SetActive(false);
-        polygraph.SetActive(false);
         int totalNotes = SongManager.Instance.GetTotalNotes();
         float accuracy = ScoreManager.GetAccuracy(totalNotes);
 
