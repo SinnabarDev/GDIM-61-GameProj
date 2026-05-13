@@ -2273,7 +2273,7 @@ MonoBehaviour:
   noteSpawnY: 6
   noteTapY: -2.5
   miniScript: {fileID: 2038856205}
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 1462615153}
   countdownStart: 3
 --- !u!82 &984627005
 AudioSource:
@@ -3961,7 +3961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda8629c3ddb714498571482eeac3dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameManager
-  rhythmGameUI: {fileID: 0}
+  rhythmGameUI: {fileID: 898793726}
   resultsScreen: {fileID: 1105540723}
   door: {fileID: 177456569}
   player: {fileID: 200264005}

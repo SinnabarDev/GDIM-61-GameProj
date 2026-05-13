@@ -10,7 +10,11 @@
     "Detective Rhythm:\nExcuse me miss, but do you-",
     "Dizzy Woman:\nehh…",
     "Detective Rhythm:\n(I don’t think I’m getting through to her..)",
-    "Detective Rhythm:\n(Maybe a little music will help.)"
+    "Detective Rhythm:\n(Maybe a little music will help.)",
+    "You're about to enter a rhythm sequence. Press the arrows keys to hit their respective notes",
+    "The more notes you hit, the higher your rank will rise",
+    "Get a B rank or higher to pass the sequence",
+    "Ready? Let's get jamming!"
   ],
   "repeatDialogue": ["Detective:\nI have returned!", "Detective:\nLet's go."],
   "hintDialogue": [

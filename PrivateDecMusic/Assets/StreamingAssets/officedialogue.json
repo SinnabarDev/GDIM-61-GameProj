@@ -1,0 +1,20 @@
+{
+  "firstDialogue": [
+    "Newspaper:\n'They will know my name' (Ignore this line, it doesn't work and I genuinely don't know why)",
+    "Newspaper:\n'They will know my name'",
+    "Newspaper:\nThis was the phrase that was found spray painted onto multiple areas throughout the city",
+    "Newspaper:\never since the disappearances started happening.",
+    "Newspaper:\nThough the individual who left these messages is still unknown,",
+    "Newspaper:\nwe can only infer that they have something to do with the missing people.",
+    "Newspaper:\nAs of now, three more people have gone missing.",
+    "Newspaper:\nMelody Pop, Octavio Crescendo, and Harmony Legato.",
+    "Detective Rhythm:\nMore missing people again?",
+    "Detective Rhythm:\nThis can’t keep happening. Whoever is doing this needs to be stopped.",
+    "Detective Rhythm:\nThere has to be something I can do.",
+    "Detective Rhythm:\nDetective Rhythm is on the case!"
+  ],
+  "repeatDialogue": ["Use the WASD keys to move around and the E key to interact with objects.", "Use your skills with the arrow keys to undaze citizens and gather information. Pay attention to their responses, as they may hold clues to the mystery."],
+  "hintDialogue": [
+    ""
+  ]
+}

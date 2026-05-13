@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf0762ce77a61046a5eb8b290beeafb, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
-  dialogueFileName: tutorial.json
+  dialogueFileName: officedialogue.json
   song: {fileID: 8300000, guid: fd1d6af2b3d29d343a349bfaa99e145d, type: 3}
   midiFileName: detectiveChart1.mid
