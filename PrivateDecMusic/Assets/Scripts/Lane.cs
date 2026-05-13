@@ -29,6 +29,7 @@ public class Lane : MonoBehaviour
 
     void Start()
     {
+        missText.SetActive(false);
         input = LoadKey();
 
         if (arrowSprite != null)
@@ -178,6 +179,7 @@ public class Lane : MonoBehaviour
         notes.Clear();
         timeStamps.Clear();
         inputBuffer.Clear();
+        missText.SetActive(false);
 
         spawnIndex = 0;
         inputIndex = 0;
