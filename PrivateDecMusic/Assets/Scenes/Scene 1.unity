@@ -1772,7 +1772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 240.7, y: 308.7}
+  m_AnchoredPosition: {x: 240, y: 290}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &464459531
@@ -2597,7 +2597,7 @@ MonoBehaviour:
   - {fileID: 1373760338}
   - {fileID: 275129763}
   songDelayInSeconds: 0
-  marginOfError: 0.125
+  marginOfError: 0.15
   inputDelayInMilliseconds: 0
   isGameActive: 0
   noteTime: 1
