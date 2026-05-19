@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ba36ed3655590469cf3a3c91ad8545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  npcData: {fileID: 11400000, guid: dcfb5a1b0f11b1244b8bd313182f7988, type: 2}
+  npcData: {fileID: 11400000, guid: 1f45aad932194944fadb9508e247c6a0, type: 2}
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
   anim: {fileID: 1150576308}
   playerInRange: 0
