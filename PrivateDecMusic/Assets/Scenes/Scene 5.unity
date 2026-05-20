@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelDoor
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
   unlocked: 1
-  nextSceneName: Scene 5
+  nextSceneName: Office
 --- !u!212 &177456570
 SpriteRenderer:
   serializedVersion: 2
@@ -543,7 +543,7 @@ Transform:
   m_GameObject: {fileID: 200264005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.18, y: -2.59, z: 0}
+  m_LocalPosition: {x: -8.7, y: -2.59, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2088,7 +2088,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744785870}
   m_CullTransparentMesh: 1
---- !u!1 &770937746
+--- !u!1 &784111467
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2096,8 +2096,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 770937748}
-  - component: {fileID: 770937747}
+  - component: {fileID: 784111469}
+  - component: {fileID: 784111468}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -2105,13 +2105,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &770937747
+--- !u!114 &784111468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770937746}
+  m_GameObject: {fileID: 784111467}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -2157,13 +2157,13 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &770937748
+--- !u!4 &784111469
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770937746}
+  m_GameObject: {fileID: 784111467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 7.13, z: 0}
@@ -3563,7 +3563,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.59, y: 8.65}
+    oldSize: {x: 3.75, y: 4.63}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3620,7 +3620,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8079124980889624732, guid: 9da9700e59d99744c853362e1a9ce2ba, type: 3}
+  m_Sprite: {fileID: 754293860169481021, guid: 30ea6934f28be0749b5a97a4d3d428ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3657,7 +3657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ba36ed3655590469cf3a3c91ad8545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  npcData: {fileID: 11400000, guid: dcfb5a1b0f11b1244b8bd313182f7988, type: 2}
+  npcData: {fileID: 11400000, guid: 1f45aad932194944fadb9508e247c6a0, type: 2}
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
   anim: {fileID: 1150576308}
   playerInRange: 0
@@ -3673,7 +3673,7 @@ Animator:
   m_GameObject: {fileID: 1150576302}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4122026191b33ed4b95cfc71d8c7b54f, type: 2}
+  m_Controller: {fileID: 9100000, guid: fbc6712a4b1ee29488b37fcef49d2fc9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4931,7 +4931,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636592577}
   m_CullTransparentMesh: 1
---- !u!1 &1696418896
+--- !u!1 &1669056457
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4939,8 +4939,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1696418898}
-  - component: {fileID: 1696418897}
+  - component: {fileID: 1669056459}
+  - component: {fileID: 1669056458}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -4948,13 +4948,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1696418897
+--- !u!114 &1669056458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696418896}
+  m_GameObject: {fileID: 1669056457}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -5000,13 +5000,13 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &1696418898
+--- !u!4 &1669056459
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696418896}
+  m_GameObject: {fileID: 1669056457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.24670447, y: 2.3678942, z: 0}
@@ -5258,5 +5258,5 @@ SceneRoots:
   - {fileID: 200264007}
   - {fileID: 1525372960}
   - {fileID: 1595106391}
-  - {fileID: 1696418898}
-  - {fileID: 770937748}
+  - {fileID: 1669056459}
+  - {fileID: 784111469}
