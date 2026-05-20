@@ -1,15 +1,15 @@
 {
   "firstDialogue": [
     "Dizzy Man:\nUgggh…",
-    "Detective:\nAnother person?",
-    "Detective:\n(He’s got the same lifeless eyes that the last woman did when she was brainwashed)",
-    "Detective:\nExcuse me sir but-",
+    "Detective Rhythm:\nAnother person?",
+    "Detective Rhythm:\n(He’s got the same lifeless eyes that the last woman did when she was brainwashed)",
+    "Detective Rhythm:\nExcuse me sir but-",
     "Dizzy Man:\nThey… will know his name",
     "Dizzy Man:\nThe Underground Artist…",
-    "Detective:\n((There’s that phrase again, and…)",
-    "Detective:\n(The Underground Artist?)",
+    "Detective Rhythm:\n((There’s that phrase again, and…)",
+    "Detective Rhythm:\n(The Underground Artist?)",
     "Dizzy Man:\nUgggh…",
-    "Detective:\n(Someone of interest maybe? I need to get more information.)",
+    "Detective Rhythm:\n(Someone of interest maybe? I need to get more information.)",
     "Dizzy Man:\n(This could be a major key to solving the case.)" 
   ],
   "repeatDialogue": ["Back again?", "Let's go."],
