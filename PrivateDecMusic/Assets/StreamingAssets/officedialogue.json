@@ -15,6 +15,6 @@
   ],
   "repeatDialogue": ["Use the WASD keys to move around and the E key to interact with objects.", "Use your skills with the arrow keys to undaze citizens and gather information. Pay attention to their responses, as they may hold clues to the mystery."],
   "hintDialogue": [
-    ""
+    "Use the WASD keys to move around and the E key to interact with objects.", "Use your skills with the arrow keys to undaze citizens and gather information. Pay attention to their responses, as they may hold clues to the mystery."
   ]
 }

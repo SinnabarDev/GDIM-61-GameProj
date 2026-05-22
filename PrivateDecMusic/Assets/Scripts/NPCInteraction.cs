@@ -84,6 +84,14 @@ public class NPCInteraction : MonoBehaviour
             return;
         }
 
+        if (dialogueData.hintDialogue != null)
+        {
+            foreach (string clue in dialogueData.hintDialogue)
+            {
+                LogBookManager.Instance.AddClue(npcData.npcName, clue);
+            }
+        }
+
         DialogueManager.Instance.StartDialogue(dialogueData.hintDialogue, onComplete);
     }
 

@@ -29,6 +29,7 @@ public class ObjectInteraction : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E) && !hasStartedDialogue)
         {
+            player.GetComponent<PlayerMovement>().enabled = false;
             hasStartedDialogue = true;
             currentNPC = this;
             StartDialogue();
@@ -76,6 +77,14 @@ public class ObjectInteraction : MonoBehaviour
 
     public void OnDialogueFinished()
     {
+        if (dialogueData.hintDialogue != null)
+        {
+            foreach (string clue in dialogueData.hintDialogue)
+            {
+                LogBookManager.Instance.AddClue(ObjData.npcName, clue);
+            }
+        }
+
         ConvEnd();
     }
 

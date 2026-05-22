@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf0762ce77a61046a5eb8b290beeafb, type: 3}
   m_Name: UndergroundArtist
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  npcName: Underground Artist
   dialogueFileName: npc3dialouge.json
   song: {fileID: 8300000, guid: b1d6f42e6c5c7f348b7454375f99753e, type: 3}
   midiFileName: undergroundartist.mid

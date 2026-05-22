@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf0762ce77a61046a5eb8b290beeafb, type: 3}
   m_Name: NPC_2
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  npcName: Octavio Crescendo
   dialogueFileName: npc2dialouge.json
   song: {fileID: 8300000, guid: 74b23ab9a4cb08344aabbd3ce5fac7b9, type: 3}
   midiFileName: encounter2Chart.mid
