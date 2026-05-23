@@ -8,6 +8,7 @@ public class LogBookManager : MonoBehaviour
     public GameObject panel;
     public Transform contentParent;
     public GameObject npcSectionPrefab;
+    public GameObject openButton;
 
     private Dictionary<string, NPCLogSection> sections = new Dictionary<string, NPCLogSection>();
 
@@ -31,13 +32,27 @@ public class LogBookManager : MonoBehaviour
 
     void Update()
     {
-        if (panel == null)
-            return;
+        bool shouldHide = false;
 
-        /*if (Input.GetKeyDown(KeyCode.Tab))
+        if (DialogueManager.Instance != null && DialogueManager.Instance.dialoguePanel.activeSelf)
         {
-            panel.SetActive(!panel.activeSelf);
-        }*/
+            shouldHide = true;
+        }
+
+        MinigameManager mg = FindFirstObjectByType<MinigameManager>();
+
+        if (mg != null && mg.rhythmGameUI.activeSelf)
+        {
+            shouldHide = true;
+        }
+
+        openButton.SetActive(!shouldHide);
+
+        if (shouldHide)
+        {
+            panel.SetActive(false);
+            return;
+        }
     }
 
     public void AddClue(string npcName, string clue)
