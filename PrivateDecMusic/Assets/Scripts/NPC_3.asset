@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
   npcName: Harmony Legato
   dialogueFileName: npc3dialouge.json
-  song: {fileID: 8300000, guid: fd1d6af2b3d29d343a349bfaa99e145d, type: 3}
-  midiFileName: encounter1Chart.mid
+  song: {fileID: 8300000, guid: d41164840d93c7c488aaacad103996cc, type: 3}
+  midiFileName: encounter3Chart.mid
