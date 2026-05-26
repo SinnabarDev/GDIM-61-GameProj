@@ -1513,8 +1513,8 @@ MonoBehaviour:
   hitText: {fileID: 564274918}
   missText: {fileID: 139748224}
   accuracyText: {fileID: 1325398435}
-  npcInteraction: {fileID: 0}
-  minigameManager: {fileID: 0}
+  npcInteraction: {fileID: 1150576307}
+  minigameManager: {fileID: 2038856205}
 --- !u!114 &382198545
 MonoBehaviour:
   m_ObjectHideFlags: 0
