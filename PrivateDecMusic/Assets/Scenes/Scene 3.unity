@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelDoor
   interactPromptPrefab: {fileID: 5541981490891933360, guid: 64a758151463f2d42b2ca448fbea5d1f, type: 3}
   unlocked: 1
-  nextSceneName: Scene 4
+  nextSceneName: Scene4Transistion
 --- !u!212 &177456570
 SpriteRenderer:
   serializedVersion: 2
