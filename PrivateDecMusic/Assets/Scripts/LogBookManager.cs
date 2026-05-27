@@ -9,6 +9,7 @@ public class LogBookManager : MonoBehaviour
     public Transform contentParent;
     public GameObject npcSectionPrefab;
     public GameObject openButton;
+    public GameObject closeButton;
 
     private Dictionary<string, NPCLogSection> sections = new Dictionary<string, NPCLogSection>();
 
@@ -46,7 +47,14 @@ public class LogBookManager : MonoBehaviour
             shouldHide = true;
         }
 
-        openButton.SetActive(!shouldHide);
+        if (closeButton.activeSelf)
+        {
+            openButton.SetActive(false);
+        }
+        else
+        {
+            openButton.SetActive(!shouldHide);
+        }
 
         if (shouldHide)
         {

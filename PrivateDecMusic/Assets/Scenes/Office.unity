@@ -990,6 +990,11 @@ RectTransform:
   m_AnchoredPosition: {x: 680, y: 100}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1844275662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7256361026286826857, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+  m_PrefabInstance: {fileID: 1339303916739049795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867141692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1340,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1185869033512081876, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 1844275662}
     - target: {fileID: 1270615996832788592, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
       propertyPath: m_Name
       value: LogBookManager
@@ -1377,6 +1386,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4818514246910585620, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932435241810502118, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932435241810502118, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927312955741332953, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927312955741332953, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981758930786025865, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
