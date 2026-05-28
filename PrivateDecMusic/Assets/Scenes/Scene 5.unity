@@ -5023,6 +5023,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1185869033512081876, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+      propertyPath: closeButton
+      value: 
+      objectReference: {fileID: 1949320712}
     - target: {fileID: 1270615996832788592, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
       propertyPath: m_Name
       value: LogBookManager
@@ -5250,6 +5254,11 @@ MonoBehaviour:
   throbScale: 1.25
   throbDuration: 0.08
   timeStamps: []
+--- !u!1 &1949320712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7256361026286826857, guid: d1956a10b2fc3a244a6b005251d9c9e8, type: 3}
+  m_PrefabInstance: {fileID: 1762561090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038856204
 GameObject:
   m_ObjectHideFlags: 0
