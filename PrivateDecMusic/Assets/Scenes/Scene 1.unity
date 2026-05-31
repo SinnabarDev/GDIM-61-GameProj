@@ -5160,9 +5160,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1963835134166084854, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: _npcState
+      value: 
+      objectReference: {fileID: 1150576308}
+    - target: {fileID: 1963835134166084854, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: _rhythmUI
       value: 
       objectReference: {fileID: 972604269}
+    - target: {fileID: 1963835134166084854, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: _afterMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f30f2ffab0055842b039fa7f100045b, type: 3}
+    - target: {fileID: 1963835134166084854, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: _beforeMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 6503535fcc5111c4c9f4008fcfc766b1, type: 3}
     - target: {fileID: 2258082405631932023, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.80743
@@ -5210,6 +5222,10 @@ PrefabInstance:
     - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: m_Volume
       value: 0.817
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: m_Resource
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6161804587202523938, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: m_Name
