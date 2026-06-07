@@ -16,7 +16,7 @@
     "Get a B rank or higher to pass the sequence",
     "Ready? Let's get jamming!"
   ],
-  "repeatDialogue": ["Detective:\nI have returned!", "Detective:\nLet's go."],
+  "repeatDialogue": ["Detective Rhythm:\nThat didn't go so well...", "Detective Rhythm:\nLet's try that again."],
   "hintDialogue": [
     "???:\nugghhh.. Huh? What happened? Why am I out here in this alley?",
     "Detective Rhythm:\nI would also like to know that…",
