@@ -46,10 +46,10 @@ public class DialogueManager : MonoBehaviour
 
     void NextLine()
     {
-        Debug.Log($"INDEX: {index}");
+        /*Debug.Log($"INDEX: {index}");
         Debug.Log($"LINES NULL? {lines == null}");
         Debug.Log($"LINES LENGTH: {(lines != null ? lines.Length : -1)}");
-        Debug.Log($"TEXT REF: {dialogueText}");
+        Debug.Log($"TEXT REF: {dialogueText}");*/
         index++;
 
         if (index >= lines.Length)

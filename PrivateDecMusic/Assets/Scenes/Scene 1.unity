@@ -2691,12 +2691,12 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -5220,16 +5220,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: m_Volume
-      value: 0.817
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380870794793035647, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: DopplerLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6161804587202523938, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
       propertyPath: m_Name
       value: BGMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161804587202523938, guid: 7250ac066183f0c4c86994f67a468bc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

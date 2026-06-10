@@ -69,7 +69,9 @@ public class SongManager : MonoBehaviour
     public void StartSong()
     {
         isGameActive = true;
-
+        Debug.Log("Pitch = " + audioSource.pitch);
+        //Debug.Log(FindObjectsByType<AudioListener>(FindObjectsSortMode.None).Length);
+        Debug.Log("Time.timeScale = " + Time.timeScale);
         audioSource.Play();
         StartCoroutine(WaitForMusicEnd());
     }

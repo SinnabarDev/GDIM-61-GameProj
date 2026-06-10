@@ -52,12 +52,12 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -143,4 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusic
   _rhythmUI: {fileID: 0}
+  _npcState: {fileID: 0}
   _backgroundMusic: {fileID: 2380870794793035647}
+  _beforeMusic: {fileID: 0}
+  _afterMusic: {fileID: 0}
