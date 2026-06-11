@@ -1,0 +1,43 @@
+{
+  "firstDialogue": [
+    "Dizzy Woman:\nUgggh…",
+    "Detective Rhythm:\n(Again?)",
+    "Dizzy Woman:\nThey... will know his name...",
+    "Detective:\n(I’m getting sick of hearing this phrase…)",
+    "Detective:\n(This is getting out of hand)",
+    "Detective:\n(Let’s make this quick, I’ve gotta be close to finding him)"
+  ],
+  "repeatDialogue": ["Detective Rhythm:\nThat didn't go so well...", "Detective Rhythm:\nLet's try that again."],
+  "hintDialogue": [
+    "???:\nUghhh where am I?",
+    "???:\nA-Am I in a sewer?! YUCK!",
+    "Detective Rhythm:\nYeah, this place isn’t exactly ideal to be in.",
+    "???:\n…",
+    "???:\nWho in the- Who are you?!",
+    "???:\nDid you bring me here?!",
+    "Detective Rhythm:\n Not at all. Please, just calm down and I’ll explain everything.",
+    "Detective Rhythm:\nI’m Detective Rhythm, and I’m in the middle of solving a case of missing citizens in the city.",
+    "Detective Rhythm:\nof missing citizens in the city.",
+    "Detective Rhythm:\nYou are?",
+    "Harmony:\nIt’s Harmony.",
+    "Detective Rhythm:\nWell Harmony, You were brainwashed by someone called The Underground Artist.",
+    "Detective Rhythm:\nHe’s got green streaks in his hair, wears a mask,",
+    "Detective Rhythm:\nwears a white coat and carries around a green boombox from what I’ve heard.",
+    "Detective Rhythm:\nDoes any of that ring a bell to you?",
+    "Harmony:\nHmmmmmm.",
+    "Harmony:\nThe Underground Artist huh? Yeah, it’s all starting to come back to me.",
+    "Harmony:\nI know exactly who you’re talking about.",
+    "Harmony:\nBut, brainwashing? Is that even possible?",
+    "Detective Rhythm:\nI know it sounds strange, but I’ve come across two other people who were in the same predicament you’re in.",
+    "Detective Rhythm:\nMindlessly wandering around with lifeless eyes while talking about The Underground Artist.",
+    "Detective Rhythm:\nBut if you have any more information on him I can put a stop to all of this.",
+    "Detective Rhythm:\nThe last guy I talked to told me that his hideout was underground with a horrible smell.",
+    "Detective Rhythm:\nAnd it’s likely that he was talking about this sewer, so I know I’m close to finding him.",
+    "Harmony:\nWell you’d be right.",
+    "Harmony:\nHe should be down this way past me, pretty hard to miss to be honest.",
+    "Detective Rhythm:\nAlright thanks. If all goes well, this will all be over soon.",
+    "Harmony:\nThat would be nice. About time he gets what’s coming to him if he really is brainwashing people.",
+    "Harmony:\nI’m gonna get some fresh air though, I've been down here long enough.",
+    "Harmony:\nGo get him Detective Rhythm!"
+  ]
+}
